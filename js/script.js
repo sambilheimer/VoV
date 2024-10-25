@@ -165,20 +165,17 @@ const inventory = {
   "Gear2": ["Sleeping Gas (3)", "Oxygen Mask", "Cast Iron Skillet", "Black Clay", "Loaded Dice", "Raucous Whistle", "Luminous Paint", "Drug", "Poison Pill", "Autoglot Translator", "Lock Picks", "Mortar & Pestle", "Strong Liquor", "Hourglass", "Chisel", "Anti-venom (3)", "Welding Torch", "Thermal Goggles", "Fungicide Bomb", "Canary in Cage"]
 };
 
-function getRandomStat() {
-    // Define the probabilities for each stat value
-    const randomValue = Math.random();
-    if (randomValue <= 0.4268) return 1;
-    if (randomValue <= 0.7114) return 2;
-    if (randomValue <= 0.8841) return 3;
-    if (randomValue <= 0.9654) return 4;
-    if (randomValue <= 0.9959) return 5;
-    return 6;
+// Randomly determine stats
+function roll3d6KeepLowest() {
+  const roll1 = Math.floor(Math.random() * 6) + 1;
+  const roll2 = Math.floor(Math.random() * 6) + 1;
+  const roll3 = Math.floor(Math.random() * 6) + 1;
+  return Math.min(roll1, roll2, roll3);
 }
 function getRandomHealth() {
     return Math.floor(Math.random() * 6) + 1;
 }
-  
+
 function generateCharacter() {
   const ancestrySelect = document.getElementById('ancestrySelectBtn').value;
     let selectedAncestryKey;
@@ -281,12 +278,12 @@ document.getElementById("gear2").innerHTML = randomGear2;
     // Stats
         // Generate stats
         const stats = {
-            str: getRandomStat(),
-            dex: getRandomStat(),
-            con: getRandomStat(),
-            int: getRandomStat(),
-            psy: getRandomStat(),
-            ego: getRandomStat(),
+            str: roll3d6KeepLowest(),
+            dex: roll3d6KeepLowest(),
+            con: roll3d6KeepLowest(),
+            int: roll3d6KeepLowest(),
+            psy: roll3d6KeepLowest(),
+            ego: roll3d6KeepLowest(),
             hp: getRandomHealth(),
         };
     
