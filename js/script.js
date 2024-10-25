@@ -134,21 +134,21 @@ sentenceTemplate: "You are BODY and FACE, with HAIR hair. You wear ATTIRE. It is
       abilities: "<span>CRYSTALLINE FLESH</span> - You are made from living crystal. Your minimum Armour Defense is 16. You do not need to eat or drink. You do not take damage from fire, cold, poison, radiation, electricity, fungal spores, or suffocation.</br></br><span>INEVITABLE</span> - During character generation, roll d8 and multiply the result by 100. This number is your starting HP. You cannot heal lost HP through any means, and do not add to your maximum HP when you gain a level. When your HP tally reaches zero you crumble into iridescent dust, leaving behind a pebble-sized lithling seed.", 
       imageCount: 4
     }, 
-    "Planeyfolk": {
-      ancestryName: ["Planeyfolk"],
-      names: [],
-      traits: {
-        head: ["Impressionistic", "Broken", "Lantern-like", "Crescent Moon", "Full Moon", "Luminous", "Angular", "Fractal", "Hollow", "Shimmering", "Lurid", "Lustrous", "Rhomboid", "Figment", "Wide", "Elongated", "Helix", "Triangular", "Quadrilateral", "Fragmentary"],
-        body: ["Fractured", "Cloven", "Flimsy", "Willowy", "Curved", "Elongated", "Staccato", "Blurred", "Ghostlike", "Draping", "Compressed", "Cubic", "Smeared", "Sharp", "Angular", "Prismatic", "Hollow", "Delicate", "Isometric", "Imposing"],
-        hair: ["Flickering", "Insubstantial", "Curved", "Voluminous", "Opalescent", "Shaven", "Iridescent", "Lurid", "Fractal", "Polygonal", "Shard-like", "Triangular", "Splintering", "Dark", "Imposing", "Pale", "Cubic", "Polychromic", "Drifting", "Fragmentary"],
-        attire: ["Dark", "Unruly", "Scholarly", "Masked", "Wild", "Polychromic", "Fractal", "Glitching", "Gauzy", "Fragmented", "Mosaic-like", "Boxy", "Flamboyant", "Dour", "Striped", "Spotted", "Glass-like", "Concealing", "Barbaric", "Outrageous"],
+    // "Planeyfolk": {
+    //   ancestryName: ["Planeyfolk"],
+    //   names: [],
+    //   traits: {
+    //     head: ["Impressionistic", "Broken", "Lantern-like", "Crescent Moon", "Full Moon", "Luminous", "Angular", "Fractal", "Hollow", "Shimmering", "Lurid", "Lustrous", "Rhomboid", "Figment", "Wide", "Elongated", "Helix", "Triangular", "Quadrilateral", "Fragmentary"],
+    //     body: ["Fractured", "Cloven", "Flimsy", "Willowy", "Curved", "Elongated", "Staccato", "Blurred", "Ghostlike", "Draping", "Compressed", "Cubic", "Smeared", "Sharp", "Angular", "Prismatic", "Hollow", "Delicate", "Isometric", "Imposing"],
+    //     hair: ["Flickering", "Insubstantial", "Curved", "Voluminous", "Opalescent", "Shaven", "Iridescent", "Lurid", "Fractal", "Polygonal", "Shard-like", "Triangular", "Splintering", "Dark", "Imposing", "Pale", "Cubic", "Polychromic", "Drifting", "Fragmentary"],
+    //     attire: ["Dark", "Unruly", "Scholarly", "Masked", "Wild", "Polychromic", "Fractal", "Glitching", "Gauzy", "Fragmented", "Mosaic-like", "Boxy", "Flamboyant", "Dour", "Striped", "Spotted", "Glass-like", "Concealing", "Barbaric", "Outrageous"],
         
-      },
-      sentenceTemplate: "You are DEMEANOR",
-      description: "The study of hypergeometry claimed many casualties, for those who seek to unpick the stitches of creation do so at great risk. The slightest mistake in hypergeometic calculations could cause ghastly distortions of matter, birthing monstrosities of perspective and volume, the sight of which turned even the most courageous man into a coward.</br></br>Planeyfolk are the descendants of such unfortunates, a race fathered by men who slipped through the cracks of Euclidean space into something new and strange. Some have normal proportions, and can be mistaken for a true person when viewed head-on. Others are possessed of more exotic geometry, their forms warped by impossible vanishing points and blasphemous angles.",
-      abilities: "<span>FLAT</span> - You lack a third dimension, and resemble a living painting or paper doll. You can slip through cracks and under doors, and cannot be seen from the side. You take halved damage from bludgeoning attacks, and double damage from slashing or piercing attacks.</br></br><span>ATTUNE WITH MATTER</span> - You struggle to hold 3D objects, and must make a DEX save to do so. However, with certain mental techniques you can draw 3D objects into your flattened reality. Given an hour of quiet concentration, you can attune yourself with an item, and add it to your inventory.", 
-      imageCount: 4
-    }, 
+    //   },
+    //   sentenceTemplate: "You are DEMEANOR",
+    //   description: "The study of hypergeometry claimed many casualties, for those who seek to unpick the stitches of creation do so at great risk. The slightest mistake in hypergeometic calculations could cause ghastly distortions of matter, birthing monstrosities of perspective and volume, the sight of which turned even the most courageous man into a coward.</br></br>Planeyfolk are the descendants of such unfortunates, a race fathered by men who slipped through the cracks of Euclidean space into something new and strange. Some have normal proportions, and can be mistaken for a true person when viewed head-on. Others are possessed of more exotic geometry, their forms warped by impossible vanishing points and blasphemous angles.",
+    //   abilities: "<span>FLAT</span> - You lack a third dimension, and resemble a living painting or paper doll. You can slip through cracks and under doors, and cannot be seen from the side. You take halved damage from bludgeoning attacks, and double damage from slashing or piercing attacks.</br></br><span>ATTUNE WITH MATTER</span> - You struggle to hold 3D objects, and must make a DEX save to do so. However, with certain mental techniques you can draw 3D objects into your flattened reality. Given an hour of quiet concentration, you can attune yourself with an item, and add it to your inventory.", 
+    //   imageCount: 4
+    // }, 
     // Add other ancestries here
   };
 const inventory = {
