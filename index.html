@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo RPG</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="text-logo">
+                <h1>Vaults of</br>Vaarn</h1>
+            </div>
+            <div class="buttonsAndToggles">
+                <button class="characterGeneratorBtn" id="generateBtn" type="button">Generate</button>
+                <select class="selectAncestryBtn" name="ancestry" id="ancestrySelectBtn">
+                    <option value="">--Select Ancestry--</option>
+                    <option value="True-kin">True-kin</option>
+                    <option value="Synth">Synth</option>
+                    <option value="Newbeast">Newbeast</option>
+                    <option value="Mycomorph">Mycomorph</option>
+                    <option value="Cacogen">Cacogen</option>
+                    <option value="Faa Nomad">Faa Nomad</option>
+                    <option value="Cacklemaw Exile">Cacklemaw Exile</option>
+                    <option value="Lithling">Lithling</option>
+                    <option value="Planeyfolk">Planeyfolk</option>
+                </select>
+            </div>
+        </div>
+        <div class="statsAndHP">
+            <div class="attributes">
+                <div class="attrCol">
+                    <div class="strength">
+                        <p><span class="attrAbrv">STR</span>ENGTH <span class="standOut">+<span id="str"></span></span></p>
+                    </div>
+                    <div class="dexterity">
+                        <p><span class="attrAbrv">DEX</span>TERITY <span class="standOut">+<span id="dex"></span></span></p>
+                    </div>
+                </div>
+                <div class="attrCol">
+                    <div class="constitution">
+                        <p><span class="attrAbrv">CON</span>STITUTION <span class="standOut">+<span id="con"></span></span></p>
+                    </div>
+                    <div class="intellect">
+                        <p><span class="attrAbrv">INT</span>ELLECT <span class="standOut">+<span id="int"></span></span></p>
+                    </div>
+                </div>
+                <div class="attrCol">
+                    <div class="psyche">
+                        <p><span class="attrAbrv">PSY</span>CHE <span class="standOut">+<span id="psy"></span></span></p>
+                    </div>
+                    <div class="ego">
+                        <p><span class="attrAbrv">EGO</span> <span class="standOut">+<span id="ego"></span></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="hpAdInv">
+                <div class="hpAdRow">
+                    <div class="hp">
+                        <p>HP <span class="standOut" id="hp">2</span></p>
+                    </div>
+                    <div class="ad">
+                        <p>AD <span class="standOut" id="ad"></span></p>
+                    </div>
+                </div>
+                <div class="inv">
+                    <p>INVENTORY</p>
+                </div>
+            </div>
+        </div>
+        <div class="nameAndAncestryRow">
+        </div>
+        <div class="allCharacterInfo">
+            <div class="infoCol infoCol-1">
+                <div class="name titleBox">
+                    <h2>Your name is <span class="nameText standOut" id="name">-</span></h2>
+                </div>
+                <div class="features" id="ancestryTraits"></div>
+                <div class="titleBox"><h2>Inventory <span class="standOut" id="invCur"></span>/<span class="standOut" id="invMax"></span></h2></div>
+                <div class="startingEquipment" id="item">
+                    <p><strong>EXOTICA:</strong> <span id="exotica"></span></p>
+                    </br>
+                    <p><strong>MYSTICAL GIFT:</strong> <span id="mgGift"></span>. The source of this gift <span id="mgSource"></span>.</p>
+                    </br>
+                    <p><span id="weaponAspect"></span> <span id="weaponType"></span></p>
+                    <p><span id="armourTrait"></span>, <span id="armourType"></span></p>
+                    <p id="gear1">Crowbar</p>
+                    <p id="gear2">Cast Iron Skillet</p>
+                    <p>3 Water Rations</p>
+                    </p>
+                </div>
+            </div>
+            <div class="infoCol infoCol-2">
+                <div class="ancestry titleBox">
+                    <h2>You are a <span class="standOut" id="ancestry">True-kin</span></h2>
+                </div>
+                <div class="ancestryDescription" id="ancestryDescription">
+                </div>
+                <div class="titleBox"><h2>Special Abilities</h2></div>
+                <div class="specialAbilities">
+                    <p><span id="ancestryAbilities"></span> <span id="mutation"></span></p>
+                </div>
+                <!-- <div class="ancestryImg titleBox" id="ancestryImg"></div> -->
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
