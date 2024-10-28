@@ -1954,20 +1954,20 @@ function roll3d6KeepLowest() {
 function getRandomHealth() {
   return Math.floor(Math.random() * 6) + 1;
 }
+// Stores the current items for later reference
+let currentInventory = {};
+let inventoryCurrent; // Start at 5
+
+function updateCurrentInventory() {
+  currentInventory.armourType =
+    document.getElementById("armourType").textContent;
+  currentInventory.weaponType =
+    document.getElementById("weaponType").textContent;
+}
 
 function generateCharacter() {
   const ancestrySelect = document.getElementById("ancestrySelectBtn").value;
   let selectedAncestryKey;
-
-  // if (selectedAncestryValue === "") {
-  //     // If no ancestry is selected, randomly select one
-  //     const ancestryKeys = Object.keys(ancestries);
-  //     const selectedAncestryKey = ancestryKeys[Math.floor(Math.random() * ancestryKeys.length)];
-  //     selectedAncestry = ancestries[selectedAncestryKey];
-  // } else {
-  //     // Otherwise, use the selected ancestry from the dropdown
-  //     selectedAncestry = ancestries[selectedAncestryKey];
-  // }
   // If the user has selected an ancestry, use that; otherwise, randomly select one
   if (ancestrySelect) {
     const ancestryKeys = Object.keys(ancestries);
@@ -1980,47 +1980,70 @@ function generateCharacter() {
 
   const selectedAncestry = ancestries[selectedAncestryKey];
 
-  // const selectedAncestry = ancestries[selectedAncestryKey];
-
-  // Randomly determine inventory
   // Helper function to get a random item from an array
   function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
   }
-  // Using the helper function for all selections
-  const randomExotica = getRandomItem(inventory.Exotica);
-  const randomMGSource = getRandomItem(inventory.MGSource);
-  const randomMGGift = getRandomItem(inventory.MGGift);
-  const randomArmourTrait = getRandomItem(inventory.ArmourQuality);
-  const randomArmourType = getRandomItem(inventory.ArmourType);
-  const randomWeaponAspect = getRandomItem(inventory.WeaponAspect);
-  const randomWeaponType = getRandomItem(inventory.WeaponType);
-  const randomGear1 = getRandomItem(inventory.Gear1);
-  const randomGear2 = getRandomItem(inventory.Gear2);
+  // Object to map inventory categories to their corresponding HTML element IDs
+  const inventoryMapping = {
+    Exotica: "exotica",
+    MGSource: "mgSource",
+    MGGift: "mgGift",
+    ArmourQuality: "armourTrait",
+    ArmourType: "armourType",
+    WeaponAspect: "weaponAspect",
+    WeaponType: "weaponType",
+    Gear1: "gear1",
+    Gear2: "gear2",
+  };
 
-  // Apply inventory items
-  document.getElementById("exotica").innerHTML = randomExotica;
-  document.getElementById("mgSource").innerHTML = randomMGSource;
-  document.getElementById("mgGift").innerHTML = randomMGGift;
-  document.getElementById("armourTrait").innerHTML = randomArmourTrait;
-  document.getElementById("armourType").innerHTML = randomArmourType;
-  document.getElementById("weaponAspect").innerHTML = randomWeaponAspect;
-  document.getElementById("weaponType").innerHTML = randomWeaponType;
-  document.getElementById("gear1").innerHTML = randomGear1;
-  document.getElementById("gear2").innerHTML = randomGear2;
+  currentInventory = {
+    exotica: getRandomItem(inventory.Exotica),
+    mgSource: getRandomItem(inventory.MGSource),
+    mgGift: getRandomItem(inventory.MGGift),
+    armourTrait: getRandomItem(inventory.ArmourQuality),
+    armourType: getRandomItem(inventory.ArmourType),
+    weaponAspect: getRandomItem(inventory.WeaponAspect),
+    weaponType: getRandomItem(inventory.WeaponType),
+    gear1: getRandomItem(inventory.Gear1),
+    gear2: getRandomItem(inventory.Gear2),
+  };
 
-  // Step 1: Randomly select an ancestry
-  // const ancestryKeys = Object.keys(ancestries);
-  // const selectedAncestryKey = ancestryKeys[Math.floor(Math.random() * ancestryKeys.length)];
-  // const selectedAncestry = ancestries[selectedAncestryKey];
+  // Update inventory display with the initial random items
+  function updateInventoryDisplay(inventory) {
+    Object.keys(inventoryMapping).forEach((key) => {
+      const elementId = inventoryMapping[key];
+      const element = document.getElementById(elementId);
 
-  // Step 2: Randomly select a name
-  const randomName =
-    selectedAncestry.names[
-      Math.floor(Math.random() * selectedAncestry.names.length)
-    ];
+      // Generate and store a random item in `currentInventory`
+      const randomItem = getRandomItem(inventory[key]);
+      currentInventory[key] = randomItem; // store in object
+      element.innerHTML = randomItem;
 
+      // Regenerate item on click and update stored value
+      element.onclick = () => {
+        const newRandomItem = getRandomItem(inventory[key]);
+        currentInventory[key] = newRandomItem;
+        element.innerHTML = newRandomItem;
+      };
+    });
+  }
+
+  updateInventoryDisplay(inventory);
+
+  // Randomly select a name
+
+  function setRandomName() {
+    const randomName =
+      selectedAncestry.names[
+        Math.floor(Math.random() * selectedAncestry.names.length)
+      ];
+    document.getElementById("name").innerHTML = randomName;
+  }
+  setRandomName();
+  document.getElementById("name").onclick = setRandomName;
   // Step 3: Randomly select traits based on the ancestry
+
   const randomTraits = {};
   Object.keys(selectedAncestry.traits).forEach((trait) => {
     const traitOptions = selectedAncestry.traits[trait];
@@ -2045,7 +2068,7 @@ function generateCharacter() {
   document.getElementById("ancestryAbilities").innerHTML = abilitySentence;
 
   // Step 6: Output name and traits in text
-  document.getElementById("name").innerHTML = `${randomName}`;
+
   document.getElementById("ancestryTraits").innerHTML = traitSentence;
 
   // Step 7: Randomized character art
@@ -2072,8 +2095,49 @@ function generateCharacter() {
     hp: getRandomHealth(),
   };
 
-  let armourDefense = 10; // Start at 10
+  let inventoryMax = stats.con + 10;
+
+  function calculateInventory() {
+    let inventoryCurrent = 7; // Start at 7
+
+    // Adjust for armour slots
+    if (currentInventory.armourType.includes("2 slots")) {
+      inventoryCurrent += 1;
+    } else if (currentInventory.armourType.includes("3 slots")) {
+      inventoryCurrent += 2;
+    } else if (currentInventory.armourType.includes("4 slots")) {
+      inventoryCurrent += 3;
+    } else if (currentInventory.armourType.includes("5 slots")) {
+      inventoryCurrent += 4;
+    } else if (currentInventory.armourType.includes("6 slots")) {
+      inventoryCurrent += 5;
+    }
+
+    // Adjust for weapon slots
+    if (currentInventory.weaponType.includes("2 slots")) {
+      inventoryCurrent += 1;
+    } else if (currentInventory.weaponType.includes("3 slots")) {
+      inventoryCurrent += 2;
+    } else if (currentInventory.weaponType.includes("4 slots")) {
+      inventoryCurrent += 3;
+    } else if (currentInventory.weaponType.includes("5 slots")) {
+      inventoryCurrent += 4;
+    } else if (currentInventory.weaponType.includes("6 slots")) {
+      inventoryCurrent += 5;
+    }
+
+    return inventoryCurrent;
+  }
+
+  // Update `currentInventory` to reflect the page elements
+  updateCurrentInventory();
+
+  // Now call calculateInventory with the updated values
+  const finalInvCur = calculateInventory();
+  console.log("Final inventory slots:", finalInvCur);
+
   function calculateArmourDefense() {
+    let armourDefense = 10; // Start at 10
     // Helper function to extract the armour bonus from a string
     function extractArmourBonus(traitString) {
       const match = String(traitString).match(/\+(\d+)/); // Looks for "+<number>"
@@ -2093,54 +2157,22 @@ function generateCharacter() {
       }
     }
     // Adjust defense based on armour equipment
-    if (randomArmourType.includes("11 AD")) {
+    if (currentInventory.armourType.includes("11 AD")) {
       armourDefense += 1;
-    } else if (randomArmourType.includes("12 AD")) {
+    } else if (currentInventory.armourType.includes("12 AD")) {
       armourDefense += 2;
-    } else if (randomArmourType.includes("13 AD")) {
+    } else if (currentInventory.armourType.includes("13 AD")) {
       armourDefense += 3;
-    } else if (randomArmourType.includes("14 AD")) {
+    } else if (currentInventory.armourType.includes("14 AD")) {
       armourDefense += 4;
-    } else if (randomArmourType.includes("15 AD")) {
+    } else if (currentInventory.armourType.includes("15 AD")) {
       armourDefense += 5;
-    } else if (randomArmourType.includes("16 AD")) {
+    } else if (currentInventory.armourType.includes("16 AD")) {
       armourDefense += 6;
     }
     return armourDefense;
   }
   const finalDefense = calculateArmourDefense();
-
-  let inventoryMax = stats.con + 10;
-
-  let inventoryCurrent = 7; // Start at 7
-
-  function calculateInventory() {
-    // Adjust inventory based on heavier items
-    if (randomArmourType.includes("2 slots")) {
-      inventoryCurrent += 1;
-    } else if (randomArmourType.includes("3 slots")) {
-      inventoryCurrent += 2;
-    } else if (randomArmourType.includes("4 slots")) {
-      inventoryCurrent += 3;
-    } else if (randomArmourType.includes("5 slots")) {
-      inventoryCurrent += 4;
-    } else if (randomArmourType.includes("6 slots")) {
-      inventoryCurrent += 5;
-    }
-    if (randomWeaponType.includes("2 slots")) {
-      inventoryCurrent += 1;
-    } else if (randomWeaponType.includes("3 slots")) {
-      inventoryCurrent += 2;
-    } else if (randomWeaponType.includes("4 slots")) {
-      inventoryCurrent += 3;
-    } else if (randomWeaponType.includes("5 slots")) {
-      inventoryCurrent += 4;
-    } else if (randomWeaponType.includes("6 slots")) {
-      inventoryCurrent += 5;
-    }
-    return inventoryCurrent;
-  }
-  const finalInvCur = calculateInventory();
 
   // console.log(inventoryCurrent);
   // console.log(inventoryMax);
@@ -2157,6 +2189,21 @@ function generateCharacter() {
   document.getElementById("invCur").innerHTML = finalInvCur;
   document.getElementById("invMax").innerHTML = inventoryMax;
 }
+
+// let selectedAncestry;
+// // Step 2: Randomly select a name
+// function namegen() {
+//   const randomName =
+//     selectedAncestry.names[
+//       Math.floor(Math.random() * selectedAncestry.names.length)
+//     ];
+//   document.getElementById("name").innerHTML = `${randomName}`;
+//   console.log("worked");
+// }
+// function nameGen() {
+//   console.log("test");
+// }
+// document.querySelector(".nameText").onclick = nameGen;
 
 document.querySelector(".characterGeneratorBtn").onclick = generateCharacter;
 

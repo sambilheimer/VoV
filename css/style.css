@@ -228,6 +228,22 @@ select:hover {
   margin-bottom: 0px;
 }
 
+a {
+  cursor: alias;
+  font-weight: 400;
+  /* color: navajowhite !important; */
+}
+
+a:hover,
+a:hover span {
+  font-style: italic;
+  color: var(--orange) !important;
+}
+
+#ancestryAbilities span {
+  font-weight: bold;
+}
+
 .attributes {
   display: flex;
   flex-direction: row;
