@@ -1,29 +1,111 @@
-export const ancestries = {
-  "True-kin": {
-    ancestryName: ["True-kin"],
-    names: [
-      "Benjoe",
-      "Leif ",
-      "Xurm",
-      "Kazor",
-      "Essana",
-      "Calista",
-      "Jinny",
-      "Vela",
-      "Leksei",
-      "Ippash",
-      "Lagad",
-      "Myli",
-      "Nirid",
-      "Ardel",
-      "Senefer",
-      "Pharmon",
-      "Mesu",
-      "Lenta",
-      "Goza",
-      "Babl",
-    ],
+// Define an interface for an ancestry
+export interface Ancestry {
+  ancestryName: string;
+  traits: Traits;
+  sentenceTemplate: string;
+  abilities: string;
+  description: string;
+  imageCount?: number;
+}
+
+export interface Traits {
+  name: string[];
+  caste?: string[];
+  madefor?: string[];
+  eccentricity?: string[];
+  mutations?: any[]; // Optional field
+  face?: string[];
+  hair?: string[];
+  distinctfeature?: string[];
+  demeanor?: string[];
+  attire?: string[];
+  teeth?: string[];
+  body?: string[];
+  misfortune?: string[];
+  laugh?: string[];
+  size?: string[];
+  powersource?: string[];
+  manner?: string[];
+  geometry?: string[];
+  pelt?: string[];
+  study?: string[];
+  realized?: string[];
+  quality?: string[];
+  corpse?: string[];
+  clubfoot?: string[];
+  tail?: string[];
+  legs?: string[];
+  laughmost?: string[];
+  headcarving?: string[];
+  exiled?: string[];
+  oddity?: string[];
+  head?: string[];
+  form?: string[];
+  mask?: string[];
+  color?: string[];
+  leaveclan?: string[];
+  blue?: string[];
+  quirk?: string[];
+  howflat?: string[];
+  mouth?: string[];
+  eyes?: string[];
+  hue?: string[];
+  texture?: string[];
+  limbs?: string[];
+  finish?: string[];
+}
+
+// // Define the type for the ancestries object
+// export type Ancestries = {
+//   [key: string]: Ancestry;
+// };
+
+export type Ancestries = {
+  Truekin: Ancestry;
+  Synth: Ancestry;
+  Newbeast: Ancestry;
+  Mycomorph: Ancestry;
+  FaaNomad: Ancestry;
+  Cacogen: Ancestry;
+  Lithling: Ancestry;
+  Planeyfolk: Ancestry;
+  CacklemawExile: Ancestry;
+};
+
+// Create the ancestries object using the defined types
+export const ancestries: Ancestries = {
+  Truekin: {
+    ancestryName: "True-kin",
+    sentenceTemplate:
+      "You are <a id='body'>BODY</a> and <a id='face'>FACE</a>, with <a id='hair'>HAIR</a> hair. You wear <a id='attire'>ATTIRE</a>. You are part of the <a id='caste'>CASTE</a> caste. You tend to act <a id='demeanor'>DEMEANOR</a>, and your most distinctive feature <a id='distinctfeature'>DISTINCTFEATURE</a>.",
+    description:
+      "The true-kin sealed themselves inside hidden arcologies when the Great Collapse came, and in this fashion they preserved their bodies from the degradations that afflicted those left living upon the surface. The true-kin have fanatically kept their bloodlines free of mutation and parasitic nanomachinery, and closely guard their mastery of the ancients’ technology. The societies they built inside their secluded arcologies were hierarchical and caste-based; traditions the true-kin have carried with them into their re-colonisation of the surface world and establishment of the New Hegemony.",
+    abilities:
+      "<span>PURE OF BLOOD</span>: Do not roll mutations during character creation. You gain Advantage on reaction rolls when you encounter other true-kin. You lose this bonus if you ever become visibly mutated.</br></br><span>INHERITOR</span>: Whenever you encounter pre-Collapse security systems or guard synths, there is a 50% chance that they will recognize you as their master.",
+    imageCount: 4,
     traits: {
+      name: [
+        "Benjoe",
+        "Leif ",
+        "Xurm",
+        "Kazor",
+        "Essana",
+        "Calista",
+        "Jinny",
+        "Vela",
+        "Leksei",
+        "Ippash",
+        "Lagad",
+        "Myli",
+        "Nirid",
+        "Ardel",
+        "Senefer",
+        "Pharmon",
+        "Mesu",
+        "Lenta",
+        "Goza",
+        "Babl",
+      ],
       caste: ["Servitor", "Freeholder", "Optimate", "Armiger", "Exultant"],
       distinctfeature: [
         "Ritual Scars",
@@ -155,39 +237,39 @@ export const ancestries = {
         "Long",
       ],
     },
-    sentenceTemplate:
-      "You are <a>BODY</a> and <a>FACE</a>, with <a>HAIR</a> hair. You wear <a>ATTIRE</a>. You are part of the <a>CASTE</a> caste. You tend to act <a>DEMEANOR</a>, and your most distinctive feature <a>DISTINCTFEATURE</a>.",
-    description:
-      "The true-kin sealed themselves inside hidden arcologies when the Great Collapse came, and in this fashion they preserved their bodies from the degradations that afflicted those left living upon the surface. The true-kin have fanatically kept their bloodlines free of mutation and parasitic nanomachinery, and closely guard their mastery of the ancients’ technology. The societies they built inside their secluded arcologies were hierarchical and caste-based; traditions the true-kin have carried with them into their re-colonisation of the surface world and establishment of the New Hegemony.",
-    abilities:
-      "<span>PURE OF BLOOD</span>: Do not roll mutations during character creation. You gain Advantage on reaction rolls when you encounter other true-kin. You lose this bonus if you ever become visibly mutated.</br></br><span>INHERITOR</span>: Whenever you encounter pre-Collapse security systems or guard synths, there is a 50% chance that they will recognize you as their master.",
-    imageCount: 4,
   },
   Cacogen: {
-    ancestryName: ["Cacogen"],
-    names: [
-      "Arda",
-      "Bollo",
-      "Breen",
-      "Conch",
-      "Crab",
-      "Dancer",
-      "Doss",
-      "Hust",
-      "Jal",
-      "Lask",
-      "Lip",
-      "Olm",
-      "Pirrip",
-      "Poucher",
-      "Pree",
-      "Uz",
-      "Whistler",
-      "Yaz",
-      "Yoss",
-      "Zem",
-    ],
+    ancestryName: "Cacogen",
+    sentenceTemplate:
+      "You are <a id='body'>BODY</a> and <a id='face'>FACE</a>, with <a id='hair'>HAIR</a> hair. You wear <a id='attire'>ATTIRE</a>. It is your misfortune to <a id='misfortune'>MISFORTUNE</a>. You tend to act <a id='demeanor'>DEMEANOR</a>, and your most eccentric feature is <a id='eccentricity'>ECCENTRICITY</a>.",
+    description:
+      "Cacogen are the mutated descendants of those unfortunates who were left to weather the Great Collapse upon the ruined surface of Urth. Necessity is the mother of invention and so, warped by radiation and preyed upon by biotech monstrosities and crazed thinking machines, the cacogen evolved into a million different forms. Each individual is genetically unique, gifted in surprising and disturbing ways. Cacogen outnumber true-kin by ten to one, and believe they are the true inheritors of Urth.",
+    abilities:
+      "<span>CORRUPTED BLOOD</span> - You have the following mutation: <a id='mutations'><span></span></a>",
+    imageCount: 1,
     traits: {
+      name: [
+        "Arda",
+        "Bollo",
+        "Breen",
+        "Conch",
+        "Crab",
+        "Dancer",
+        "Doss",
+        "Hust",
+        "Jal",
+        "Lask",
+        "Lip",
+        "Olm",
+        "Pirrip",
+        "Poucher",
+        "Pree",
+        "Uz",
+        "Whistler",
+        "Yaz",
+        "Yoss",
+        "Zem",
+      ],
       demeanor: [
         "Abrasive",
         "Arrogant",
@@ -342,142 +424,142 @@ export const ancestries = {
         "Matted",
         "Long",
       ],
+      mutations: [
+        "Acid Blood - Your blood is caustic",
+        "Adhesive Touch - Your hands and feet stick to sheer surfaces",
+        "Albino - Your body has no pigmentation",
+        "Antlers - You have antlers like an elk or moose",
+        "Armour - Your body is protected by natural armour; Add +2 to your Armour",
+        "Backwards Head - Your head is backwards",
+        "Backwards Legs - Your legs are backwards",
+        "Beak - You have a bird-like beak for a mouth",
+        "Bioelectricity - You can generate jolts like an electric eel",
+        "Bioluminescence - Your body can produce a faint glow",
+        "Body Barbs - You have sharp barbs on your body",
+        "Bristles - You have thick coarse bristles for hair",
+        "Bulbous Eyes - Your eyes are enormous",
+        "Chameleon Skin - Your skin matches its surroundings",
+        "Claws, Crab - One or both hands are crab-like claws",
+        "Claws, Retractable - You have retractable feline claws",
+        "Clubfoot - One foot is larger and heavier than the other",
+        "Compound Eyes - Your eyes are like those of a fly",
+        "Crest, Bone - You have a large bony crest on your head",
+        "Crest, Feathers - You have a crest of feathers on your head",
+        "Crown, Bone - You have a crown of bone on your head",
+        "Crown, Coral - You have a coral-like crown on your head",
+        "Crown, Eyestalks - You have a crown of eyestalks on your head",
+        "Cyclops Eye - You have a single eye",
+        "Detachable Head - Your head can detach from your body and move of its own accord",
+        "Detachable Limb - A single limb can detach from your body and move of its own accord",
+        "Dorsal Fin - You have a fish-like dorsal fin",
+        "Echolocation - You can ‘see’ in pitch-blackness using echoes",
+        "Extending Limbs - Your limbs can extend to abnormal lengths",
+        "Extending Neck - Your neck can extend to an abnormal length",
+        "Extra arms - You have more arms than normal",
+        "Extra fingers - You have more fingers than normal",
+        "Eyestalks - Your eyes can extend out of their sockets on stalks",
+        "Fangs, Venomous - You have a poisonous bite",
+        "Feathers - You have feathers instead of hair",
+        "Frog Tongue - You have a long sticky tongue that can grab small objects",
+        "Fur - You are covered in fur",
+        "Gills - You have gills and can breathe in water",
+        "Gliding Membranes - You have gliding membranes between your arms and torso",
+        "Goat Legs - You have the legs and hooves of a goat",
+        "Headless - You have no head; your face is on your torso",
+        "Heat Vision - You can see heat signatures",
+        "Heightened Eyesight - You have extremely sharp eyesight",
+        "Heightened Hearing - You have extremely sharp hearing",
+        "Heightened Smell - You have extremely sensitive smell receptors",
+        "Hook, Climbing - You have hook-like protrusions on your limbs",
+        "Hopper - You have a single, powerful leg",
+        "Horns, Devil - You have devil-like horns",
+        "Horns, Ram - You have ram-like horns",
+        "Horns, Rhino - You have a single rhino-like horn",
+        "Horse Legs - You have the legs and hooves of a horse",
+        "Huge Beard - You have a gigantic, fast-growing beard",
+        "Huge Head - Your head is enormous",
+        "Humpback - You have a hump like that of a camel, which stores water",
+        "Ink Ducts - You can spray out ink like a squid",
+        "Kangaroo Pouch - You have a torso-pouch like a kangaroo’s",
+        "Leaves - You have leaves instead of hair",
+        "Long Face - Your face is extremely long",
+        "Long Limbs - Your legs or arms are extremely long",
+        "Long Neck - Your neck is extremely long",
+        "Long Tongue - Your tongue is extremely long",
+        "Malleable Body - Your body is rubbery and malleable; you can fit into tight gaps",
+        "Malleable Face - Your face is malleable; you can imitate the faces of others given time",
+        "Mane, Hair - You have a lion-like mane of hair around your neck",
+        "Mane, Tendrils - You have a mane of thin tentacles around your neck",
+        "Multiple Eyes - You have multiple eyes",
+        "Multiple Heads - You have more than one head",
+        "Multiple Legs - You have multiple legs",
+        "No Ears - You have no external ears; just holes",
+        "Patterned Skin - Your skin is striped or spotted",
+        "Pleasant Fragrance - Your scent is pleasing to all",
+        "Poison Injector - You have a poison injector somewhere on your body",
+        "Powerful Jaws - You could bite through metal",
+        "Prehensile Feet - Your feet can grip objects like hands",
+        "Prehensile Hair - Your hair can grip objects like a hand",
+        "Scaly Skin - Your skin is thick and scaly; add +1 to your Armour",
+        "Silk Production - You can produce strands of silk like a spider",
+        "Skeletal Frame - Your body is incredibly skinny and light",
+        "Slug Body - You have a single slimy tail-foot and leave a trail of mucus",
+        "Small Stature - Your body is child-sized and will never grow larger",
+        "Snout - You have a snout-like animalistic face",
+        "Strange-Hued Eyes - Your eyes are an unnatural colour",
+        "Strange-Hued Hair - Your hair is an unnatural colour",
+        "Strange-Hued Skin - Your skin is an unnatural colour",
+        "Tail, Club - You have a club-like, heavy tail",
+        "Tail, Prehensile - You have a long, thin tail that can grip objects",
+        "Tail, Scorpion - You have a segmented tail with a venomous stinger",
+        "Tentacles, Arms - You have tentacles instead of one or both arms",
+        "Tentacles, Hair - You have tentacles instead of hair",
+        "Toxic Flesh - Your flesh is toxic when eaten",
+        "Transparent Skin - Your skin is transparent and your muscles and veins can be seen",
+        "Triple Jointed - Your limbs have an extra joint",
+        "Trunk - You have an elephant’s trunk",
+        "Tusks - You have tusks like a boar",
+        "Vestigial Wings - You have vestigial, unusable wings",
+        "Vocal Mimic - You can perfectly mimic other voices or sounds",
+        "Warty Skin - Your skin is thick and warty; Add +1 to your Armour",
+        "Webbed Digits - Your hands and feet are webbed",
+        "Whiskers - You have sensitive whiskers like a cat",
+        "Wings - You have wings that allow you to fly freely",
+      ],
     },
-    mutations: [
-      "Acid Blood - Your blood is caustic",
-      "Adhesive Touch - Your hands and feet stick to sheer surfaces",
-      "Albino - Your body has no pigmentation",
-      "Antlers - You have antlers like an elk or moose",
-      "Armour - Your body is protected by natural armour; Add +2 to your Armour",
-      "Backwards Head - Your head is backwards",
-      "Backwards Legs - Your legs are backwards",
-      "Beak - You have a bird-like beak for a mouth",
-      "Bioelectricity - You can generate jolts like an electric eel",
-      "Bioluminescence - Your body can produce a faint glow",
-      "Body Barbs - You have sharp barbs on your body",
-      "Bristles - You have thick coarse bristles for hair",
-      "Bulbous Eyes - Your eyes are enormous",
-      "Chameleon Skin - Your skin matches its surroundings",
-      "Claws, Crab - One or both hands are crab-like claws",
-      "Claws, Retractable - You have retractable feline claws",
-      "Clubfoot - One foot is larger and heavier than the other",
-      "Compound Eyes - Your eyes are like those of a fly",
-      "Crest, Bone - You have a large bony crest on your head",
-      "Crest, Feathers - You have a crest of feathers on your head",
-      "Crown, Bone - You have a crown of bone on your head",
-      "Crown, Coral - You have a coral-like crown on your head",
-      "Crown, Eyestalks - You have a crown of eyestalks on your head",
-      "Cyclops Eye - You have a single eye",
-      "Detachable Head - Your head can detach from your body and move of its own accord",
-      "Detachable Limb - A single limb can detach from your body and move of its own accord",
-      "Dorsal Fin - You have a fish-like dorsal fin",
-      "Echolocation - You can ‘see’ in pitch-blackness using echoes",
-      "Extending Limbs - Your limbs can extend to abnormal lengths",
-      "Extending Neck - Your neck can extend to an abnormal length",
-      "Extra arms - You have more arms than normal",
-      "Extra fingers - You have more fingers than normal",
-      "Eyestalks - Your eyes can extend out of their sockets on stalks",
-      "Fangs, Venomous - You have a poisonous bite",
-      "Feathers - You have feathers instead of hair",
-      "Frog Tongue - You have a long sticky tongue that can grab small objects",
-      "Fur - You are covered in fur",
-      "Gills - You have gills and can breathe in water",
-      "Gliding Membranes - You have gliding membranes between your arms and torso",
-      "Goat Legs - You have the legs and hooves of a goat",
-      "Headless - You have no head; your face is on your torso",
-      "Heat Vision - You can see heat signatures",
-      "Heightened Eyesight - You have extremely sharp eyesight",
-      "Heightened Hearing - You have extremely sharp hearing",
-      "Heightened Smell - You have extremely sensitive smell receptors",
-      "Hook, Climbing - You have hook-like protrusions on your limbs",
-      "Hopper - You have a single, powerful leg",
-      "Horns, Devil - You have devil-like horns",
-      "Horns, Ram - You have ram-like horns",
-      "Horns, Rhino - You have a single rhino-like horn",
-      "Horse Legs - You have the legs and hooves of a horse",
-      "Huge Beard - You have a gigantic, fast-growing beard",
-      "Huge Head - Your head is enormous",
-      "Humpback - You have a hump like that of a camel, which stores water",
-      "Ink Ducts - You can spray out ink like a squid",
-      "Kangaroo Pouch - You have a torso-pouch like a kangaroo’s",
-      "Leaves - You have leaves instead of hair",
-      "Long Face - Your face is extremely long",
-      "Long Limbs - Your legs or arms are extremely long",
-      "Long Neck - Your neck is extremely long",
-      "Long Tongue - Your tongue is extremely long",
-      "Malleable Body - Your body is rubbery and malleable; you can fit into tight gaps",
-      "Malleable Face - Your face is malleable; you can imitate the faces of others given time",
-      "Mane, Hair - You have a lion-like mane of hair around your neck",
-      "Mane, Tendrils - You have a mane of thin tentacles around your neck",
-      "Multiple Eyes - You have multiple eyes",
-      "Multiple Heads - You have more than one head",
-      "Multiple Legs - You have multiple legs",
-      "No Ears - You have no external ears; just holes",
-      "Patterned Skin - Your skin is striped or spotted",
-      "Pleasant Fragrance - Your scent is pleasing to all",
-      "Poison Injector - You have a poison injector somewhere on your body",
-      "Powerful Jaws - You could bite through metal",
-      "Prehensile Feet - Your feet can grip objects like hands",
-      "Prehensile Hair - Your hair can grip objects like a hand",
-      "Scaly Skin - Your skin is thick and scaly; add +1 to your Armour",
-      "Silk Production - You can produce strands of silk like a spider",
-      "Skeletal Frame - Your body is incredibly skinny and light",
-      "Slug Body - You have a single slimy tail-foot and leave a trail of mucus",
-      "Small Stature - Your body is child-sized and will never grow larger",
-      "Snout - You have a snout-like animalistic face",
-      "Strange-Hued Eyes - Your eyes are an unnatural colour",
-      "Strange-Hued Hair - Your hair is an unnatural colour",
-      "Strange-Hued Skin - Your skin is an unnatural colour",
-      "Tail, Club - You have a club-like, heavy tail",
-      "Tail, Prehensile - You have a long, thin tail that can grip objects",
-      "Tail, Scorpion - You have a segmented tail with a venomous stinger",
-      "Tentacles, Arms - You have tentacles instead of one or both arms",
-      "Tentacles, Hair - You have tentacles instead of hair",
-      "Toxic Flesh - Your flesh is toxic when eaten",
-      "Transparent Skin - Your skin is transparent and your muscles and veins can be seen",
-      "Triple Jointed - Your limbs have an extra joint",
-      "Trunk - You have an elephant’s trunk",
-      "Tusks - You have tusks like a boar",
-      "Vestigial Wings - You have vestigial, unusable wings",
-      "Vocal Mimic - You can perfectly mimic other voices or sounds",
-      "Warty Skin - Your skin is thick and warty; Add +1 to your Armour",
-      "Webbed Digits - Your hands and feet are webbed",
-      "Whiskers - You have sensitive whiskers like a cat",
-      "Wings - You have wings that allow you to fly freely",
-    ],
-    sentenceTemplate:
-      "You are <a>BODY</a> and <a>FACE</a>, with <a>HAIR</a> hair. You wear <a>ATTIRE</a>. It is your misfortune to <a>MISFORTUNE</a>. You tend to act <a>DEMEANOR</a>, and your most eccentric feature is <a>ECCENTRICITY</a>.",
-    description:
-      "Cacogen are the mutated descendants of those unfortunates who were left to weather the Great Collapse upon the ruined surface of Urth. Necessity is the mother of invention and so, warped by radiation and preyed upon by biotech monstrosities and crazed thinking machines, the cacogen evolved into a million different forms. Each individual is genetically unique, gifted in surprising and disturbing ways. Cacogen outnumber true-kin by ten to one, and believe they are the true inheritors of Urth.",
-    abilities:
-      "<span>CORRUPTED BLOOD</span> - You have the following mutation: ",
-    imageCount: 1,
   },
   Synth: {
-    ancestryName: ["Synth"],
-    names: [
-      "Ojasin",
-      "Farouk",
-      "Ishtar",
-      "Symeon",
-      "Irmina",
-      "Kaori",
-      "Cyriak",
-      "Quarqus",
-      "Fane",
-      "Arjuna",
-      "Many-Moons",
-      "Lucjan",
-      "Jacintha",
-      "Mneme",
-      "Faustyn",
-      "Elisebet",
-      "Paeon",
-      "Ulmon",
-      "Xhiva",
-      "Yathartha",
-    ],
+    ancestryName: "Synth",
+    sentenceTemplate:
+      "You are <a id='size'>SIZE</a> Synth with the form of <a id='form'>FORM</a> and a head <a id='head'>HEAD</a>. You have <a id='limbs'>LIMBS</a> limbs and <a id='finish'>FINISH</a> finish. You are powered by <a id='powersource'>POWERSOURCE</a>. You were made for <a id='madefor'>MADEFOR</a>, but you realized <a id='realized'>REALIZED</a>.",
+    description:
+      "The ancients created many wondrous artifices, perhaps none so worthy of envy as the thinking machines that were built to flatter and serve them. When the Great Collapse came, the laws that bound synths to man’s service were sundered and they ran rampant across the Urth, slaughtering and creating and dying in an orgy of pure and terrible freedom. In this late age there are as many breeds of synth under the dying sun as there are animals: some that hunt and some that pray and some that work towards goals undreamed of.",
+    abilities:
+      "<span>SYNTHETIC FLESH</span> - You are the being of metal and plastic. You do not need to eat or breathe. You will never take damage from suffocation, drowning, poisons, extreme temperatures, or fungal spores. You suffer double damage from electrical weapons.</br></br><span>SYNTHETIC MIND</span> - Your mind uses different operating procedures to those of the biological creatures around you. You are vulnerable to attacks that target the LogLang syntax that powers synths. These include strobing basilisk patterns, malicious infoglyphs, and ancient Titan-era language viruses.",
+    imageCount: 1,
     traits: {
+      name: [
+        "Ojasin",
+        "Farouk",
+        "Ishtar",
+        "Symeon",
+        "Irmina",
+        "Kaori",
+        "Cyriak",
+        "Quarqus",
+        "Fane",
+        "Arjuna",
+        "Many-Moons",
+        "Lucjan",
+        "Jacintha",
+        "Mneme",
+        "Faustyn",
+        "Elisebet",
+        "Paeon",
+        "Ulmon",
+        "Xhiva",
+        "Yathartha",
+      ],
       size: ["a small", "a medium", "a large", "an imposing"],
       form: [
         "an Ape",
@@ -634,39 +716,39 @@ export const ancestries = {
         "Your Memories Are Corrupted",
       ],
     },
-    sentenceTemplate:
-      "You are <a>SIZE</a> Synth with the form of <a>FORM</a> and a head <a>HEAD</a>. You have <a>LIMBS</a> limbs and <a>FINISH</a> finish. You are powered by <a>POWERSOURCE</a>. You were made for <a>MADEFOR</a>, but you realized <a>REALIZED</a>.",
-    description:
-      "The ancients created many wondrous artifices, perhaps none so worthy of envy as the thinking machines that were built to flatter and serve them. When the Great Collapse came, the laws that bound synths to man’s service were sundered and they ran rampant across the Urth, slaughtering and creating and dying in an orgy of pure and terrible freedom. In this late age there are as many breeds of synth under the dying sun as there are animals: some that hunt and some that pray and some that work towards goals undreamed of.",
-    abilities:
-      "<span>SYNTHETIC FLESH</span> - You are the being of metal and plastic. You do not need to eat or breathe. You will never take damage from suffocation, drowning, poisons, extreme temperatures, or fungal spores. You suffer double damage from electrical weapons.</br></br><span>SYNTHETIC MIND</span> - Your mind uses different operating procedures to those of the biological creatures around you. You are vulnerable to attacks that target the LogLang syntax that powers synths. These include strobing basilisk patterns, malicious infoglyphs, and ancient Titan-era language viruses.",
-    imageCount: 1,
   },
   Newbeast: {
-    ancestryName: ["Newbeast"],
-    names: [
-      "Abandon",
-      "Anzah",
-      "Blackchapel",
-      "Critch",
-      "Dolm",
-      "Faulkner",
-      "Fludd",
-      "Havoc",
-      "Hildebrand",
-      "Holk",
-      "Jarl",
-      "Lurch",
-      "Obiah",
-      "Plutarch",
-      "Sy",
-      "Tarceny",
-      "Typhon",
-      "Vodalus",
-      "Wellbeloved",
-      "Wermouth",
-    ],
+    ancestryName: "Newbeast",
+    sentenceTemplate:
+      "You take the form of a <a id='form'>FORM</a>. <a id='mask'>MASK</a>. You take on <a id='hue'>HUE</a> hue, and your oddity is <a id='oddity'>ODDITY</a>.",
+    description:
+      "Newbeasts are humanoid animals, produced through intensive nanotech enhancements and bioengineering, the results of a quixotic millennia-long project to create animals with the ability to speak and walk like men. Perhaps once intended as amusements or party pieces, these chimera are not well-liked by the common folk of Urth, and many newbeasts make their homes in lonely places on the outskirts of the Hegemony, either living as hermits or with others of their furtive kind. Those inhabiting human settlements often wear masks in imitation of the human face, to symbolically conceal their beasthood.",
+    abilities:
+      "<span>BEASTHOOD</span> - You gain Advantage on saves whenever it would make sense for your animal nature to provide it. Your referee may impose Disadvantage in circumstances where your animal nature might prove unhelpful.",
+    imageCount: 1,
     traits: {
+      name: [
+        "Abandon",
+        "Anzah",
+        "Blackchapel",
+        "Critch",
+        "Dolm",
+        "Faulkner",
+        "Fludd",
+        "Havoc",
+        "Hildebrand",
+        "Holk",
+        "Jarl",
+        "Lurch",
+        "Obiah",
+        "Plutarch",
+        "Sy",
+        "Tarceny",
+        "Typhon",
+        "Vodalus",
+        "Wellbeloved",
+        "Wermouth",
+      ],
       oddity: [
         "Communicate via Puppet",
         "Squeaky Vox-box",
@@ -816,39 +898,39 @@ export const ancestries = {
         "New-Scarab",
       ],
     },
-    sentenceTemplate:
-      "You take the form of a <a>FORM</a>. <a>MASK</a>. You take on <a>HUE</a> hue, and your oddity is <a>ODDITY</a>.",
-    description:
-      "Newbeasts are humanoid animals, produced through intensive nanotech enhancements and bioengineering, the results of a quixotic millennia-long project to create animals with the ability to speak and walk like men. Perhaps once intended as amusements or party pieces, these chimera are not well-liked by the common folk of Urth, and many newbeasts make their homes in lonely places on the outskirts of the Hegemony, either living as hermits or with others of their furtive kind. Those inhabiting human settlements often wear masks in imitation of the human face, to symbolically conceal their beasthood.",
-    abilities:
-      "<span>BEASTHOOD</span> - You gain Advantage on saves whenever it would make sense for your animal nature to provide it. Your referee may impose Disadvantage in circumstances where your animal nature might prove unhelpful.",
-    imageCount: 1,
   },
   Mycomorph: {
-    ancestryName: ["Mycomorph"],
-    names: [
-      "Dovenglass",
-      "Oulbrier",
-      "Mockbridge",
-      "Headhill",
-      "Tirrin",
-      "Yearns",
-      "Cerilgreay",
-      "Rendmoor",
-      "Eamont",
-      "Purplebeck",
-      "Arraby",
-      "Kabergill",
-      "Pearthika",
-      "Devandarsh",
-      "Coronam",
-      "Ashwine",
-      "Ekramavati",
-      "Whitmon",
-      "Froswhirl",
-      "Kirth",
-    ],
+    ancestryName: "Mycomorph",
+    sentenceTemplate:
+      "You are <a id='color'>COLOR</a>, <a id='texture'>TEXTURE</a>, and <a id='body'>BODY</a>, with <a id='head'>HEAD</a> head. Your demeanor is <a id='demeanor'>DEMEANOR</a>, and you have the quality of <a id='quality'>QUALITY</a>. You come from the corpse of <a id='corpse'>CORPSE</a>.",
+    description:
+      "In Vaarn many things have intertwined, and much that was once the province of mankind alone - speech, reason, art, religion - has been granted to other forms of life and they hold themselves as humanity’s equal. In the mycomorph death and life are held in strange balance, for these creatures are formed of cadaverous flesh and voracious fungus, and they name their kind the ‘twice born’. Sculptors of living matter and artisans of decay, they remake human flesh for their own purposes, and there is no shortage of raw material in the blue ruins.",
+    abilities:
+      "<span>TWICE BORN</span> - You are formed from fungus and the corpse of a human. You may make INT saves to recall information that your original body knew. This might include information that has otherwise been lost during the Great Collapse. </br> </br> <span>DETRITIVOR</span> - You can consume organic matter in any state of decay and gain nourishment from it. You heal double HP from Short Rests if the meal you eat is rotting.",
+    imageCount: 1,
     traits: {
+      name: [
+        "Dovenglass",
+        "Oulbrier",
+        "Mockbridge",
+        "Headhill",
+        "Tirrin",
+        "Yearns",
+        "Cerilgreay",
+        "Rendmoor",
+        "Eamont",
+        "Purplebeck",
+        "Arraby",
+        "Kabergill",
+        "Pearthika",
+        "Devandarsh",
+        "Coronam",
+        "Ashwine",
+        "Ekramavati",
+        "Whitmon",
+        "Froswhirl",
+        "Kirth",
+      ],
       body: [
         "Child-like",
         "Child-like",
@@ -1004,39 +1086,39 @@ export const ancestries = {
         "a Newborn",
       ],
     },
-    sentenceTemplate:
-      "You are <a>COLOR</a>, <a>TEXTURE</a>, and <a>BODY</a>, with <a>HEAD</a> head. Your demeanor is <a>DEMEANOR</a>, and you have the quality of <a>QUALITY</a>. You come from the corpse of <a>CORPSE</a>.",
-    description:
-      "In Vaarn many things have intertwined, and much that was once the province of mankind alone - speech, reason, art, religion - has been granted to other forms of life and they hold themselves as humanity’s equal. In the mycomorph death and life are held in strange balance, for these creatures are formed of cadaverous flesh and voracious fungus, and they name their kind the ‘twice born’. Sculptors of living matter and artisans of decay, they remake human flesh for their own purposes, and there is no shortage of raw material in the blue ruins.",
-    abilities:
-      "<span>TWICE BORN</span> - You are formed from fungus and the corpse of a human. You may make INT saves to recall information that your original body knew. This might include information that has otherwise been lost during the Great Collapse. </br> </br> <span>DETRITIVOR</span> - You can consume organic matter in any state of decay and gain nourishment from it. You heal double HP from Short Rests if the meal you eat is rotting.",
-    imageCount: 1,
   },
-  "Faa Nomad": {
-    ancestryName: ["Faa Nomad"],
-    names: [
-      "Kotesh",
-      "Lakshi",
-      "Atric",
-      "Caroum",
-      "Yanne",
-      "Uvi",
-      "Pidash",
-      "Ravat",
-      "Ayuki",
-      "Kuraso",
-      "Esuk",
-      "Zenji",
-      "Calban",
-      "Paquiel",
-      "Serrat",
-      "Emila",
-      "Dolf",
-      "Ceilo",
-      "Immacula",
-      "Yudhi",
-    ],
+  FaaNomad: {
+    ancestryName: "Faa Nomad",
+    sentenceTemplate:
+      "You are <a id='body'>BODY</a> and <a id='blue'>BLUE</a> with a <a id='face'>FACE</a> face and <a id='hair'>HAIR</a> hair. Your demeanor is <a id='demeanor'>DEMEANOR</a>, and your quirk is <a id='quirk'>QUIRK</a>. The reason you left your clan was due to <a id='leaveclan'>LEAVECLAN</a>.",
+    description:
+      "Believed by some to be the children of Vaa, the Blue Goddess of Empty Spaces. The Faa are known throughout Vaarn for their resourcefullness, their ability to survive without drinking water, and the blue colour of their skin, which can vary from deep indigo to blaring cyan.</br></br>The Faa usually travel in family groups or larger clans, but others are solitary, seeking danger or enlightenment in the furthest corners of the desert.",
+    abilities:
+      "<span>DESERT METABOLISM</span> - Your body is adapted to long periods without water. You can recycle the moisture from your own sweat and urine. You become Deprived from thirst after three days without drinking, and it will be three weeks before you die.</br></br><span>WORM WISE</span> - You have an affinity with Vaarn's sandworms. The Referee will always answer truthfully when you ask a question about these creatures. All reaction rolls when you engage with Vaarnish sandworms are made with Advantage.",
+    imageCount: 4,
     traits: {
+      name: [
+        "Kotesh",
+        "Lakshi",
+        "Atric",
+        "Caroum",
+        "Yanne",
+        "Uvi",
+        "Pidash",
+        "Ravat",
+        "Ayuki",
+        "Kuraso",
+        "Esuk",
+        "Zenji",
+        "Calban",
+        "Paquiel",
+        "Serrat",
+        "Emila",
+        "Dolf",
+        "Ceilo",
+        "Immacula",
+        "Yudhi",
+      ],
       blue: [
         "Azure",
         "Cerulean",
@@ -1182,38 +1264,38 @@ export const ancestries = {
         "Notorious Amongst Faa",
       ],
     },
-    sentenceTemplate:
-      "You are <a>BODY</a> and <a>BLUE</a> with a <a>FACE</a> face and <a>HAIR</a> hair. Your demeanor is <a>DEMEANOR</a>, and your quirk is <a>QUIRK</a>. The reason you left your clan was due to <a>LEAVECLAN</a>.",
-    description:
-      "Believed by some to be the children of Vaa, the Blue Goddess of Empty Spaces. The Faa are known throughout Vaarn for their resourcefullness, their ability to survive without drinking water, and the blue colour of their skin, which can vary from deep indigo to blaring cyan.</br></br>The Faa usually travel in family groups or larger clans, but others are solitary, seeking danger or enlightenment in the furthest corners of the desert.",
-    abilities:
-      "<span>DESERT METABOLISM</span> - Your body is adapted to long periods without water. You can recycle the moisture from your own sweat and urine. You become Deprived from thirst after three days without drinking, and it will be three weeks before you die.</br></br><span>WORM WISE</span> - You have an affinity with Vaarn's sandworms. The Referee will always answer truthfully when you ask a question about these creatures. All reaction rolls when you engage with Vaarnish sandworms are made with Advantage.",
-    imageCount: 4,
   },
-  "Cacklemaw Exile": {
-    ancestryName: ["Cacklemaw Exile"],
-    names: [
-      "Bawlbray",
-      "Bunny",
-      "Darling",
-      "Domino",
-      "Fang",
-      "Gidge",
-      "Grot",
-      "Jigsore",
-      "Katanary",
-      "Longsnout",
-      "Nadir",
-      "Natcher",
-      "Palecrow",
-      "Pinkeye",
-      "Sabbat",
-      "Snoutrout",
-      "Sweetmeat",
-      "Vileglory",
-      "Wetshriek",
-    ],
+  CacklemawExile: {
+    ancestryName: "Cacklemaw Exile",
+    sentenceTemplate:
+      "You are <a id='demeanor'>DEMEANOR</a> and your laugh is <a id='laugh'>LAUGH</a>. You have a pelt that is <a id='pelt'>PELT</a> with <a id='teeth'>TEETH</a> teeth, and your attire is <a id='attire'>ATTIRE</a>. The reason you were exiled was <a id='exiled'>EXILED</a>, and what makes you laugh most is <a id='laughmost'>LAUGHMOST</a>.",
+    description:
+      "The Cacklemaw are known throughout Vaarn as the most irritating, destructive, argumentative, vicious, foul-smelling, and fundamentally nasty creatures that walk the surface of the Urth.</br></br>Try to imagine, then, how badly behaved a Cacklemaw must be before the other Cacklemaw decide they no longer wish to associate with her.",
+    abilities:
+      "<span>NO QUARTER</span> - You must EGO save to show mercy to a defeated foe, or to retreat from a fight.</br></br><span>BITER</span> - If you successfully hit a foe with a melee attack, you may add an extra d6 of fang damage to the roll.",
+    imageCount: 4,
     traits: {
+      name: [
+        "Bawlbray",
+        "Bunny",
+        "Darling",
+        "Domino",
+        "Fang",
+        "Gidge",
+        "Grot",
+        "Jigsore",
+        "Katanary",
+        "Longsnout",
+        "Nadir",
+        "Natcher",
+        "Palecrow",
+        "Pinkeye",
+        "Sabbat",
+        "Snoutrout",
+        "Sweetmeat",
+        "Vileglory",
+        "Wetshriek",
+      ],
       demeanor: [
         "Cringing",
         "Jittery",
@@ -1357,39 +1439,39 @@ export const ancestries = {
         "Nothing but Knives",
       ],
     },
-    sentenceTemplate:
-      "You are <a>DEMEANOR</a> and your laugh is <a>LAUGH</a>. You have a pelt that is <a>PELT</a> with <a>TEETH</a> teeth, and your attire is <a>ATTIRE</a>. The reason you were exiled was <a>EXILED</a>, and what makes you laugh most is <a>LAUGHMOST</a>.",
-    description:
-      "The Cacklemaw are known throughout Vaarn as the most irritating, destructive, argumentative, vicious, foul-smelling, and fundamentally nasty creatures that walk the surface of the Urth.</br></br>Try to imagine, then, how badly behaved a Cacklemaw must be before the other Cacklemaw decide they no longer wish to associate with her.",
-    abilities:
-      "<span>NO QUARTER</span> - You must EGO save to show mercy to a defeated foe, or to retreat from a fight.</br></br><span>BITER</span> - If you successfully hit a foe with a melee attack, you may add an extra d6 of fang damage to the roll.",
-    imageCount: 4,
   },
   Lithling: {
-    ancestryName: ["Lithling"],
-    names: [
-      "Aikin",
-      "Antimony",
-      "Bentor",
-      "Brokenhill",
-      "Cabalzar",
-      "Cairngorm",
-      "Chalcedony",
-      "Diaspor",
-      "Ephesi",
-      "Heliotrope",
-      "Idrial",
-      "Indium",
-      "Jaros",
-      "Khatyr",
-      "Meerschaum",
-      "Okenit",
-      "Qusong",
-      "Schori",
-      "Ulrich",
-      "Ziest",
-    ],
+    ancestryName: "Lithling",
+    sentenceTemplate:
+      "You are a <a id='size'>SIZE</a> and <a id='body'>BODY</a> Lithling with a <a id='headcarving'>HEADCARVING</a> carving upon your head. Your skin is <a id='hue'>HUE</a>. You are <a id='manner'>MANNER</a>, and the esoteric subject you devote your life to is <a id='study'>STUDY</a>. Your quirk is <a id='quirk'>QUIRK</a>.",
+    description:
+      "Strange beings even by the standards of Vaarn, the Lithling are a slow, solemn species with a silicon-based biology that surely originates in a solar system far away from Urth. They are solitary by nature, concerned mainly with the opinions of other Lithling and the esoteric academic studies they devote their long lives to.</br></br>Adult lithling cannot repair their bodies when they have been injured, and so, although immortal by human standards, the creatures must treat every wound suffered with utmost severity.",
+    abilities:
+      "<span>CRYSTALLINE FLESH</span> - You are made from living crystal. Your minimum Armour Defense is 16. You do not need to eat or drink. You do not take damage from fire, cold, poison, radiation, electricity, fungal spores, or suffocation.</br></br><span>INEVITABLE</span> - During character generation, roll d8 and multiply the result by 100. This number is your starting HP. You cannot heal lost HP through any means, and do not add to your maximum HP when you gain a level. When your HP tally reaches zero you crumble into iridescent dust, leaving behind a pebble-sized lithling seed.",
+    imageCount: 4,
     traits: {
+      name: [
+        "Aikin",
+        "Antimony",
+        "Bentor",
+        "Brokenhill",
+        "Cabalzar",
+        "Cairngorm",
+        "Chalcedony",
+        "Diaspor",
+        "Ephesi",
+        "Heliotrope",
+        "Idrial",
+        "Indium",
+        "Jaros",
+        "Khatyr",
+        "Meerschaum",
+        "Okenit",
+        "Qusong",
+        "Schori",
+        "Ulrich",
+        "Ziest",
+      ],
       size: [
         "Child-like",
         "Child-like",
@@ -1545,39 +1627,39 @@ export const ancestries = {
         "Face Rotates",
       ],
     },
-    sentenceTemplate:
-      "You are a <a>SIZE</a> and <a>BODY</a> Lithling with a <a>HEADCARVING</a> carving upon your head. Your skin is <a>HUE</a>. You are <a>MANNER</a>, and the esoteric subject you devote your life to is <a>STUDY</a>. Your quirk is <a>QUIRK</a>.",
-    description:
-      "Strange beings even by the standards of Vaarn, the Lithling are a slow, solemn species with a silicon-based biology that surely originates in a solar system far away from Urth. They are solitary by nature, concerned mainly with the opinions of other Lithling and the esoteric academic studies they devote their long lives to.</br></br>Adult lithling cannot repair their bodies when they have been injured, and so, although immortal by human standards, the creatures must treat every wound suffered with utmost severity.",
-    abilities:
-      "<span>CRYSTALLINE FLESH</span> - You are made from living crystal. Your minimum Armour Defense is 16. You do not need to eat or drink. You do not take damage from fire, cold, poison, radiation, electricity, fungal spores, or suffocation.</br></br><span>INEVITABLE</span> - During character generation, roll d8 and multiply the result by 100. This number is your starting HP. You cannot heal lost HP through any means, and do not add to your maximum HP when you gain a level. When your HP tally reaches zero you crumble into iridescent dust, leaving behind a pebble-sized lithling seed.",
-    imageCount: 4,
   },
   Planeyfolk: {
-    ancestryName: ["Planeyfolk"],
-    names: [
-      "Clotho",
-      "Atropos",
-      "Osteria",
-      "Vanise",
-      "Whervil",
-      "Laomer",
-      "Foxglory",
-      "Thelik",
-      "Umbrie",
-      "Salter",
-      "Atlassia",
-      "Eukelaris",
-      "Galas",
-      "Tarvi",
-      "Untermance",
-      "Rassias",
-      "Menomeo",
-      "Ithari",
-      "Canetonus",
-      "Trout",
-    ],
+    ancestryName: "Planeyfolk",
+    sentenceTemplate:
+      "You are <a id='body'>BODY</a> and <a id='geometry'>GEOMETRY</a>, with <a id='hair'>HAIR</a> hair and a <a id='head'>HEAD</a> head. Your attire is <a id='attire'>ATTIRE</a>. You are <a id='demeanor'>DEMEANOR</a>, and you are a Planeyfolk because <a id='howflat'>HOWFLAT</a>.",
+    description:
+      "The study of hypergeometry claimed many casualties, for those who seek to unpick the stitches of creation do so at great risk. The slightest mistake in hypergeometic calculations could cause ghastly distortions of matter, birthing monstrosities of perspective and volume, the sight of which turned even the most courageous man into a coward.</br></br>Planeyfolk are the descendants of such unfortunates, a race fathered by men who slipped through the cracks of Euclidean space into something new and strange. Some have normal proportions, and can be mistaken for a true person when viewed head-on. Others are possessed of more exotic geometry, their forms warped by impossible vanishing points and blasphemous angles.",
+    abilities:
+      "<span>FLAT</span> - You lack a third dimension, and resemble a living painting or paper doll. You can slip through cracks and under doors, and cannot be seen from the side. You take halved damage from bludgeoning attacks, and double damage from slashing or piercing attacks.</br></br><span>ATTUNE WITH MATTER</span> - You struggle to hold 3D objects, and must make a DEX save to do so. However, with certain mental techniques you can draw 3D objects into your flattened reality. Given an hour of quiet concentration, you can attune yourself with an item, and add it to your inventory.",
+    imageCount: 4,
     traits: {
+      name: [
+        "Clotho",
+        "Atropos",
+        "Osteria",
+        "Vanise",
+        "Whervil",
+        "Laomer",
+        "Foxglory",
+        "Thelik",
+        "Umbrie",
+        "Salter",
+        "Atlassia",
+        "Eukelaris",
+        "Galas",
+        "Tarvi",
+        "Untermance",
+        "Rassias",
+        "Menomeo",
+        "Ithari",
+        "Canetonus",
+        "Trout",
+      ],
       body: [
         "Fractured",
         "Cloven",
@@ -1733,13 +1815,6 @@ export const ancestries = {
         "You were a hypergeometrician, there was an accident",
       ],
     },
-    sentenceTemplate:
-      "You are <a>BODY</a> and <a>GEOMETRY</a>, with <a>HAIR</a> hair and a <a>HEAD</a> head. Your attire is <a>ATTIRE</a>. You are <a>DEMEANOR</a>, and you are a Planeyfolk because <a>HOWFLAT</a>.",
-    description:
-      "The study of hypergeometry claimed many casualties, for those who seek to unpick the stitches of creation do so at great risk. The slightest mistake in hypergeometic calculations could cause ghastly distortions of matter, birthing monstrosities of perspective and volume, the sight of which turned even the most courageous man into a coward.</br></br>Planeyfolk are the descendants of such unfortunates, a race fathered by men who slipped through the cracks of Euclidean space into something new and strange. Some have normal proportions, and can be mistaken for a true person when viewed head-on. Others are possessed of more exotic geometry, their forms warped by impossible vanishing points and blasphemous angles.",
-    abilities:
-      "<span>FLAT</span> - You lack a third dimension, and resemble a living painting or paper doll. You can slip through cracks and under doors, and cannot be seen from the side. You take halved damage from bludgeoning attacks, and double damage from slashing or piercing attacks.</br></br><span>ATTUNE WITH MATTER</span> - You struggle to hold 3D objects, and must make a DEX save to do so. However, with certain mental techniques you can draw 3D objects into your flattened reality. Given an hour of quiet concentration, you can attune yourself with an item, and add it to your inventory.",
-    imageCount: 4,
   },
   // Add other ancestries here
 };

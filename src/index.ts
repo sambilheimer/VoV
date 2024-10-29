@@ -1,142 +1,81 @@
-import { ancestries } from "./ancestries";
-import { inventory } from "./inventory";
+import { ancestries, Ancestry } from "./ancestries";
+import { inventory, InventoryItems } from "./inventory";
+import { getRandom } from "./utils";
+// Helper function to get a random item from an array
 
-// Randomly determine stats
-function roll3d6KeepLowest() {
+// Function to randomly determine stats
+function roll3d6KeepLowest(): number {
   const roll1 = Math.floor(Math.random() * 6) + 1;
   const roll2 = Math.floor(Math.random() * 6) + 1;
   const roll3 = Math.floor(Math.random() * 6) + 1;
   return Math.min(roll1, roll2, roll3);
 }
-function getRandomHealth() {
+// Function to randomly determine health
+function getRandomHealth(): number {
   return Math.floor(Math.random() * 6) + 1;
 }
-// Stores the current items for later reference
-let currentInventory = {};
-let inventoryCurrent; // Start at 5
-
-function updateCurrentInventory() {
-  currentInventory.armourType =
-    document.getElementById("armourType").textContent;
-  currentInventory.weaponType =
-    document.getElementById("weaponType").textContent;
-}
+let randomTraits;
 
 function generateCharacter() {
-  const ancestrySelect = document.getElementById("ancestrySelectBtn").value;
-  let selectedAncestryKey;
+  const ancestrySelect: string = (
+    document.getElementById("ancestrySelectBtn") as HTMLSelectElement
+  ).value; // this gives the value of the selected option so we can use it to select the ancestry
+  let selectedAncestryKey; // this will be the key of the selected ancestry
+  const ancestryKeys = Object.keys(ancestries);
   // If the user has selected an ancestry, use that; otherwise, randomly select one
   if (ancestrySelect) {
-    const ancestryKeys = Object.keys(ancestries);
-    selectedAncestryKey = ancestrySelect; // Use the dropdown selection
+    // if ancestrySelect is not null or undefined; i.e., if the user has selected an ancestry
+    // const ancestryKeys = Object.keys(ancestries); // create a variable equal to an array of the ancestries object properties (in this case a list of ancestries as strings); the Object.keys() method returns an array of the properties of an object, in this case a list of all the ancestries since they are the keys of the ancestries object. This line then says that the variable ancestryKeys will be an array of strings, which I can then use to select a random ancestry
+    selectedAncestryKey = ancestrySelect; // therefore, use the dropdown selection to select the ancestry
   } else {
-    const ancestryKeys = Object.keys(ancestries);
-    selectedAncestryKey =
-      ancestryKeys[Math.floor(Math.random() * ancestryKeys.length)]; // Random ancestry
+    // otherwise randomly select one
+    selectedAncestryKey = getRandom(ancestryKeys); // Random ancestry; this line creates a variable selectedAncestryKey by taking the array of ancestryKeys and randomly selecting one of its strings.
   }
+  const selectedAncestry: Ancestry =
+    ancestries[selectedAncestryKey as keyof typeof ancestries];
 
-  const selectedAncestry = ancestries[selectedAncestryKey];
-
-  // Helper function to get a random item from an array
-  function getRandomItem(array) {
-    return array[Math.floor(Math.random() * array.length)];
-  }
-  // Object to map inventory categories to their corresponding HTML element IDs
-  const inventoryMapping = {
-    Exotica: "exotica",
-    MGSource: "mgSource",
-    MGGift: "mgGift",
-    ArmourQuality: "armourTrait",
-    ArmourType: "armourType",
-    WeaponAspect: "weaponAspect",
-    WeaponType: "weaponType",
-    Gear1: "gear1",
-    Gear2: "gear2",
-  };
-
-  currentInventory = {
-    exotica: getRandomItem(inventory.Exotica),
-    mgSource: getRandomItem(inventory.MGSource),
-    mgGift: getRandomItem(inventory.MGGift),
-    armourTrait: getRandomItem(inventory.ArmourQuality),
-    armourType: getRandomItem(inventory.ArmourType),
-    weaponAspect: getRandomItem(inventory.WeaponAspect),
-    weaponType: getRandomItem(inventory.WeaponType),
-    gear1: getRandomItem(inventory.Gear1),
-    gear2: getRandomItem(inventory.Gear2),
-  };
-
-  // Update inventory display with the initial random items
-  function updateInventoryDisplay(inventory) {
-    Object.keys(inventoryMapping).forEach((key) => {
-      const elementId = inventoryMapping[key];
-      const element = document.getElementById(elementId);
-
-      // Generate and store a random item in `currentInventory`
-      const randomItem = getRandomItem(inventory[key]);
-      currentInventory[key] = randomItem; // store in object
-      element.innerHTML = randomItem;
-
-      // Regenerate item on click and update stored value
-      element.onclick = () => {
-        const newRandomItem = getRandomItem(inventory[key]);
-        currentInventory[key] = newRandomItem;
-        element.innerHTML = newRandomItem;
-      };
-    });
-  }
-
-  updateInventoryDisplay(inventory);
-
-  // Randomly select a name
-
-  function setRandomName() {
-    const randomName =
-      selectedAncestry.names[
-        Math.floor(Math.random() * selectedAncestry.names.length)
-      ];
-    document.getElementById("name").innerHTML = randomName;
-  }
-  setRandomName();
-  document.getElementById("name").onclick = setRandomName;
-  // Step 3: Randomly select traits based on the ancestry
-
-  const randomTraits = {};
-  Object.keys(selectedAncestry.traits).forEach((trait) => {
-    const traitOptions = selectedAncestry.traits[trait];
-    randomTraits[trait] =
-      traitOptions[Math.floor(Math.random() * traitOptions.length)];
-  });
-
-  // Step 4: Replace the trait placeholders in the sentence
-  let traitSentence = selectedAncestry.sentenceTemplate;
-  let abilitySentence = selectedAncestry.abilities;
-  Object.keys(randomTraits).forEach((trait) => {
-    traitSentence = traitSentence.replace(
-      trait.toUpperCase(),
-      randomTraits[trait]
-    );
-  });
-
-  // Step 5: Set ancestry description and abilities
-  document.getElementById("ancestry").innerHTML = selectedAncestry.ancestryName;
-  document.getElementById("ancestryDescription").innerHTML =
+  // set static ancestry properties
+  document.getElementById("ancestry")!.innerHTML =
+    selectedAncestry.ancestryName;
+  document.getElementById("ancestryDescription")!.innerHTML =
     selectedAncestry.description;
-  document.getElementById("ancestryAbilities").innerHTML = abilitySentence;
+  document.getElementById("ancestryAbilities")!.innerHTML =
+    selectedAncestry.abilities;
+  document.getElementById("ancestryTraits")!.innerHTML =
+    selectedAncestry.sentenceTemplate;
 
-  // Step 6: Output name and traits in text
+  function initializeTraits(ancestry: Ancestry) {
+    const selectedTraits: { [key: string]: string | undefined } = {};
 
-  document.getElementById("ancestryTraits").innerHTML = traitSentence;
+    // Generate random traits and populate the HTML
+    for (const [traitType, traitArray] of Object.entries(ancestry.traits)) {
+      if (Array.isArray(traitArray) && traitArray.length > 0) {
+        // Generate a random trait
+        const traitValue = getRandom(traitArray);
+        selectedTraits[traitType] = traitValue;
 
-  // Step 7: Randomized character art
-  //  let previousImageNumber = null;
-  //  let randomImageNumber;
-  //  do {
-  //      randomImageNumber = Math.floor(Math.random() * selectedAncestry.imageCount) + 1;
-  //  } while (randomImageNumber === previousImageNumber);
-  // Store the current image number for the next generation
-  //  previousImageNumber = randomImageNumber;
-  // document.querySelector('.ancestryImg').style.backgroundImage = `url('assets/${selectedAncestryKey}-${randomImageNumber}.jpg')`;
+        // Find the corresponding HTML element by ID
+        const element = document.getElementById(traitType);
+        if (element && traitValue) {
+          element.innerText = traitValue; // Set initial text content
+          // Add an onclick listener to regenerate only this trait
+          element.onclick = () => {
+            const newTraitValue = getRandom(traitArray);
+            if (newTraitValue) {
+              element.innerText = newTraitValue; // Update text with new trait
+              selectedTraits[traitType] = newTraitValue; // Update selected traits
+            }
+          };
+        }
+      }
+    }
+
+    return selectedTraits;
+  }
+
+  const randomTraits = initializeTraits(selectedAncestry);
+
+  const randomInventory = initializeInventory(inventory);
 
   // Stats
   // Generate stats
@@ -150,99 +89,154 @@ function generateCharacter() {
     hp: getRandomHealth(),
   };
 
-  let inventoryMax = stats.con + 10;
+  let inventoryMaxKey = 10 + stats.con;
+  let inventoryMax = inventoryMaxKey.toString();
 
-  function calculateInventory(): number {
-    let inventoryCurrent: number = 7; // Start at 7
+  // updateInventoryDisplay(inventory);
+  // const selectedArmourType = randomInventory.armourType;
+  // const selectedWeaponType = randomInventory.weaponType;
+  // let inventoryCurrent = 7; // Start at 7
 
-    // Adjust for armour slots
-    if (currentInventory.armourType.includes("2 slots")) {
-      inventoryCurrent += 1;
-    } else if (currentInventory.armourType.includes("3 slots")) {
-      inventoryCurrent += 2;
-    } else if (currentInventory.armourType.includes("4 slots")) {
-      inventoryCurrent += 3;
-    } else if (currentInventory.armourType.includes("5 slots")) {
-      inventoryCurrent += 4;
-    } else if (currentInventory.armourType.includes("6 slots")) {
-      inventoryCurrent += 5;
-    }
+  let selectedArmourType = randomInventory.armourType;
+  let selectedWeaponType = randomInventory.weaponType;
 
-    // Adjust for weapon slots
-    if (currentInventory.weaponType.includes("2 slots")) {
-      inventoryCurrent += 1;
-    } else if (currentInventory.weaponType.includes("3 slots")) {
-      inventoryCurrent += 2;
-    } else if (currentInventory.weaponType.includes("4 slots")) {
-      inventoryCurrent += 3;
-    } else if (currentInventory.weaponType.includes("5 slots")) {
-      inventoryCurrent += 4;
-    } else if (currentInventory.weaponType.includes("6 slots")) {
-      inventoryCurrent += 5;
-    }
-
-    return inventoryCurrent;
-  }
-
-  // Update `currentInventory` to reflect the page elements
-  updateCurrentInventory();
-
-  // Now call calculateInventory with the updated values
-  const finalInvCur = calculateInventory();
-  console.log("Final inventory slots:", finalInvCur);
-
+  // inventory functions up top
   function calculateArmourDefense() {
     let armourDefense = 10; // Start at 10
-    // Helper function to extract the armour bonus from a string
-    function extractArmourBonus(traitString) {
-      const match = String(traitString).match(/\+(\d+)/); // Looks for "+<number>"
-      return match ? parseInt(match[1], 10) : 0;
-    }
-    // Adjust defense based on ancestry traits
-    if (selectedAncestry.ancestryName.includes("Cacogen")) {
-      const randomMutation =
-        selectedAncestry.mutations[
-          Math.floor(Math.random() * selectedAncestry.mutations.length)
-        ];
-      document.getElementById("mutation").innerHTML = randomMutation;
-      if (randomMutation.includes("Armour")) {
-        const bonus = extractArmourBonus(randomMutation);
-        armourDefense += bonus; // Adds +2, +1, or other based on the extracted number
-        console.log(bonus);
+    if (selectedArmourType) {
+      if (selectedArmourType.includes("11 AD")) {
+        armourDefense += 1;
+      } else if (selectedArmourType.includes("12 AD")) {
+        armourDefense += 2;
+      } else if (selectedArmourType.includes("13 AD")) {
+        armourDefense += 3;
+      } else if (selectedArmourType.includes("14 AD")) {
+        armourDefense += 4;
+      } else if (selectedArmourType.includes("15 AD")) {
+        armourDefense += 5;
+      } else if (selectedArmourType.includes("16 AD")) {
+        armourDefense += 6;
+      } else {
+        return armourDefense;
       }
-    }
-    // Adjust defense based on armour equipment
-    if (currentInventory.armourType.includes("11 AD")) {
-      armourDefense += 1;
-    } else if (currentInventory.armourType.includes("12 AD")) {
-      armourDefense += 2;
-    } else if (currentInventory.armourType.includes("13 AD")) {
-      armourDefense += 3;
-    } else if (currentInventory.armourType.includes("14 AD")) {
-      armourDefense += 4;
-    } else if (currentInventory.armourType.includes("15 AD")) {
-      armourDefense += 5;
-    } else if (currentInventory.armourType.includes("16 AD")) {
-      armourDefense += 6;
     }
     return armourDefense;
   }
-  const finalDefense = calculateArmourDefense();
 
-  // Update the HTML elements with generated values
-  document.getElementById("str").innerHTML = stats.str;
-  document.getElementById("dex").innerHTML = stats.dex;
-  document.getElementById("con").innerHTML = stats.con;
-  document.getElementById("int").innerHTML = stats.int;
-  document.getElementById("psy").innerHTML = stats.psy;
-  document.getElementById("ego").innerHTML = stats.ego;
-  document.getElementById("hp").innerHTML = stats.hp;
-  document.getElementById("ad").innerHTML = finalDefense;
-  document.getElementById("invCur").innerHTML = finalInvCur;
-  document.getElementById("invMax").innerHTML = inventoryMax;
+  function calculateInventorySize() {
+    let inventoryCurrent = 7;
+    // Adjust for armour slots
+    if (selectedArmourType) {
+      if (selectedArmourType.includes("2 slots")) {
+        inventoryCurrent += 1;
+      } else if (selectedArmourType.includes("3 slots")) {
+        inventoryCurrent += 2;
+      } else if (selectedArmourType.includes("4 slots")) {
+        inventoryCurrent += 3;
+      } else if (selectedArmourType.includes("5 slots")) {
+        inventoryCurrent += 4;
+      } else if (selectedArmourType.includes("6 slots")) {
+        inventoryCurrent += 5;
+      } else {
+      }
+    }
+    // Adjust for weapon slots
+    if (selectedWeaponType) {
+      if (selectedWeaponType.includes("2 slots")) {
+        inventoryCurrent += 1;
+      } else if (selectedWeaponType.includes("3 slots")) {
+        inventoryCurrent += 2;
+      } else if (selectedWeaponType.includes("4 slots")) {
+        inventoryCurrent += 3;
+      } else if (selectedWeaponType.includes("5 slots")) {
+        inventoryCurrent += 4;
+      } else if (selectedWeaponType.includes("6 slots")) {
+        inventoryCurrent += 5;
+      } else {
+      }
+    }
+    return inventoryCurrent;
+  }
+
+  function initializeInventory(inventory: InventoryItems) {
+    selectedInventory = {};
+    // Generate random inventory items and populate the HTML
+    for (const [itemType, itemArray] of Object.entries(inventory)) {
+      if (Array.isArray(itemArray) && itemArray.length > 0) {
+        // Generate a random item
+        const itemValue = getRandom(itemArray);
+        selectedInventory[itemType] = itemValue;
+
+        // Find the corresponding HTML element by ID
+        const element = document.getElementById(itemType);
+        if (element && itemValue) {
+          element.innerText = itemValue; // Set initial text content
+
+          // Add an onclick listener to regenerate only this item
+          // Add an onclick listener to regenerate this item
+          element.onclick = () =>
+            regenerateItemAndUpdateValues(
+              itemType as keyof InventoryItems,
+              inventory
+            );
+        }
+      }
+    }
+
+    return selectedInventory;
+  }
+
+  let selectedInventory: { [key: string]: string | undefined } = {}; // Declare it outside the functions
+
+  // Function to regenerate the item and update armor defense and inventory size
+  function regenerateItemAndUpdateValues(
+    itemType: keyof InventoryItems,
+    inventory: InventoryItems
+  ) {
+    // Get the inventory element
+    const element = document.getElementById(itemType);
+    if (!element) return;
+
+    // Regenerate the inventory item
+    const newItemValue = getRandom(inventory[itemType]);
+    if (newItemValue) {
+      element.innerText = newItemValue; // Update the item in the HTML
+      selectedInventory[itemType] = newItemValue; // Update the selected inventory
+
+      // Update selectedArmourType or selectedWeaponType based on itemType
+      if (itemType === "armourType") {
+        selectedArmourType = newItemValue; // Update selected armor type
+      } else if (itemType === "weaponType") {
+        selectedWeaponType = newItemValue; // Update selected weapon type
+      }
+
+      // Recalculate armor defense and inventory size
+      applyAdAndInventory(); // Call this to refresh values displayed in the HTML
+    }
+  }
+
+  function applyAdAndInventory() {
+    let currentInventory = calculateInventorySize().toString();
+    let finalDefense = calculateArmourDefense().toString();
+    document.getElementById("ad")!.innerHTML = finalDefense;
+    document.getElementById("invCur")!.textContent = currentInventory;
+    console.log(currentInventory);
+  }
+
+  calculateInventorySize();
+  calculateArmourDefense();
+  applyAdAndInventory();
+
+  // Update the HTML elements with generated values for Stats
+  Object.entries(stats).forEach(([key, value]) => {
+    const element = document.getElementById(key);
+    if (element) element.innerHTML = value.toString();
+  });
+
+  document.getElementById("invMax")!.innerHTML = inventoryMax;
 }
 
-document.querySelector(".characterGeneratorBtn").onclick = generateCharacter;
+document.getElementById("generateBtn")!.onclick = generateCharacter;
 
 window.onload = function () {
   generateCharacter();

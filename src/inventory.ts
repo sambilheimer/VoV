@@ -1,5 +1,20 @@
-export const inventory = {
-  Exotica: [
+// import { getRandom } from "./utils";
+
+// Define the type for the ancestries object
+export interface InventoryItems {
+  exotica: string[];
+  mGSource: string[];
+  mGift: string[];
+  armourQuality: string[];
+  armourType: string[];
+  weaponAspect: string[];
+  weaponType: string[];
+  gear1: string[];
+  gear2: string[];
+}
+// export const ancestries: Ancestries = {
+export const inventory: InventoryItems = {
+  exotica: [
     "Mirror Ring - Projects a hologram copy of the wearer that mimics their actions.",
     "A Fool’s Head - The severed head of a synthetic jester. Not in great condition but can still remember some jokes.",
     "Singing Crystal - When struck, sings loudly and beautifully for up to an hour.",
@@ -21,7 +36,7 @@ export const inventory = {
     "Helpful Snake - It lives up your sleeve and tries, whenever it can, to help.",
     "Dried Crypt Lotus - Grim flower that sprouts from the forehead of corpses. Sometimes kept as a keepsake of a lost companion.",
   ],
-  MGSource: [
+  mGSource: [
     "is a Mystical Crystal",
     "is Ritual Cannibalism",
     "is a Psychoactive Fungus",
@@ -43,7 +58,7 @@ export const inventory = {
     "was when you Beheld Azathoth, the Daemon Sultan",
     "was when youStudied in Lost Archives",
   ],
-  MGGift: [
+  mGift: [
     "Telekinesis",
     "Pyrokinesis",
     "Telepathy",
@@ -65,7 +80,7 @@ export const inventory = {
     "Cryokinesis",
     "Induce Sleep",
   ],
-  WeaponAspect: [
+  weaponAspect: [
     "Golden",
     "Quicksilver",
     "Ultraviolet",
@@ -87,7 +102,7 @@ export const inventory = {
     "Plasma",
     "Translucent",
   ],
-  WeaponType: [
+  weaponType: [
     "Knife (d6)",
     "Flail (d6)",
     "Whip (d6)",
@@ -109,7 +124,7 @@ export const inventory = {
     "Spore Thrower (3 slots, d10)",
     "Railgun (3 slots, d10)",
   ],
-  ArmourQuality: [
+  armourQuality: [
     "Shabby",
     "Decadent",
     "Ancestral",
@@ -131,7 +146,7 @@ export const inventory = {
     "Crystalline",
     "Ornate",
   ],
-  ArmourType: [
+  armourType: [
     "Desert Robes (11 AD)",
     "Desert Robes (11 AD)",
     "Hazard Wrap (12 AD, 2 slots, immunity from radiation and toxins)",
@@ -153,7 +168,7 @@ export const inventory = {
     "Plate Armour (16 AD, 6 slots, disadvantage to swim or climb)",
     "Plate Armour (16 AD, 6 slots, disadvantage to swim or climb)",
   ],
-  Gear1: [
+  gear1: [
     "Flashbang (5)",
     "Magnetic Boots",
     "Grappling Hook & Rope",
@@ -175,7 +190,7 @@ export const inventory = {
     "Ball Bearings (LOTS)",
     "Glowstone",
   ],
-  Gear2: [
+  gear2: [
     "Sleeping Gas (3)",
     "Oxygen Mask",
     "Cast Iron Skillet",
@@ -198,3 +213,50 @@ export const inventory = {
     "Canary in Cage",
   ],
 };
+
+// // Object to map inventory categories to their corresponding HTML element IDs
+// export const inventoryMapping = {
+//   Exotica: "exotica",
+//   MGSource: "mgSource",
+//   MGGift: "mgGift",
+//   ArmourQuality: "armourTrait",
+//   ArmourType: "armourType",
+//   WeaponAspect: "weaponAspect",
+//   WeaponType: "weaponType",
+//   Gear1: "gear1",
+//   Gear2: "gear2",
+// };
+
+// // Update inventory display with the initial random items
+// export function updateInventoryDisplay(inventory: string[]) {
+//   Object.keys(inventoryMapping).forEach((key) => {
+//     const elementId = inventoryMapping[key];
+//     const element = document.getElementById(elementId);
+
+//     // Generate and store a random item in `currentInventory`
+//     const randomItem = getRandomItem(inventory[key]);
+//     currentInventory[key] = randomItem; // store in object
+//     element.innerHTML = randomItem;
+
+//     // Regenerate item on click and update stored value
+//     element.onclick = () => {
+//       const newRandomItem = getRandomItem(inventory[key]);
+//       currentInventory[key] = newRandomItem;
+//       element.innerHTML = newRandomItem;
+//     };
+//   });
+// }
+
+// currentInventory = {
+//   exotica: getRandomItem(inventory.Exotica),
+//   mgSource: getRandomItem(inventory.MGSource),
+//   mgGift: getRandomItem(inventory.MGGift),
+//   armourTrait: getRandomItem(inventory.ArmourQuality),
+//   armourType: getRandomItem(inventory.ArmourType),
+//   weaponAspect: getRandomItem(inventory.WeaponAspect),
+//   weaponType: getRandomItem(inventory.WeaponType),
+//   gear1: getRandomItem(inventory.Gear1),
+//   gear2: getRandomItem(inventory.Gear2),
+// };
+
+// updateInventoryDisplay(inventory);

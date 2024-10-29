@@ -48,6 +48,7 @@
   --hpAdInvWidth: 20%;
   --statAndHpGap: calc((var(--attributesWidth) + var(--hpAdInvWidth)) / 4);
   --orange: #e98633;
+  --yellow: #ffd602;
 }
 
 h1 {
@@ -61,13 +62,18 @@ h1 {
   margin: 0;
 }
 
+p,
+button {
+  font-size: 20px;
+}
+
 html {
   background: #4a3a68;
 }
 
 body {
-  padding-top: 80px;
-  padding-bottom: 40px;
+  padding-top: 100px;
+  /* padding-bottom: 40px; */
   /*background-color: #4A3A68; */
   color: #ffffff;
   font-weight: 100;
@@ -75,12 +81,13 @@ body {
   line-height: 1.5;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background: url(../assets/bg_copy.jpg) fixed;
   background-position: bottom right;
   background-size: cover;
   background-repeat: repeat;
+  min-height: calc(100vh - 100px);
 }
 
 /* Container for the main content */
@@ -90,6 +97,7 @@ body {
   max-width: 1200px;
   display: flex;
   flex-direction: column;
+  padding-bottom: 40px;
 }
 
 /* Header and button container */
@@ -106,7 +114,7 @@ body {
 }
 
 .text-logo h1 {
-  font-size: 100px;
+  font-size: 120px;
   line-height: 0.44em;
   text-align: center;
   color: var(--orange);
@@ -143,7 +151,7 @@ body {
   cursor: pointer;
   transition: 0.2s ease-in-out;
   border: none;
-  font-size: unset;
+  font-size: 20px !important;
   font-weight: 100;
 }
 
@@ -154,6 +162,7 @@ select {
   font: inherit !important;
   line-height: 1.5em !important;
   padding: 0.5em 3.5em 0.5em 1em !important;
+  font-size: 20px !important;
 
   /* reset */
 
@@ -207,6 +216,9 @@ select:hover {
   font-size: 20px;
   padding-top: 20px;
 }
+.statsAndHP p {
+  font-size: 28px;
+}
 
 /* .statsAndHP:before {
     content: "";
@@ -239,6 +251,15 @@ a:hover span {
   font-style: italic;
   color: var(--orange) !important;
 }
+h2 a span:hover {
+  color: var(--yellow) !important;
+}
+#ancestry:hover,
+a#ancestry:hover span {
+  color: var(--orange) !important;
+  cursor: default !important;
+  font-style: normal !important;
+}
 
 #ancestryAbilities span {
   font-weight: bold;
@@ -268,7 +289,7 @@ a:hover span {
 
 .attrCol,
 .hpAdInv {
-  row-gap: 1em;
+  row-gap: 0.8em;
 }
 
 .hpAdInv {
@@ -353,7 +374,7 @@ a:hover span {
 }
 
 .features {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 /* Ancestry Section */
@@ -366,7 +387,7 @@ a:hover span {
 }
 
 .ancestryDescription {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.4;
 }
 
@@ -419,7 +440,7 @@ a:hover {
     width: 100%;
   }
   .ancestryDescription {
-    font-size: 14px;
+    font-size: 20px;
   }
   .attrCol {
     width: 100%;
