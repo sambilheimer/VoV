@@ -240,16 +240,19 @@ select:hover {
   margin-bottom: 0px;
 }
 
-a:not(#ancestry):hover {
+a:hover {
   /* cursor: alias; */
   font-weight: 400;
   /* color: navajowhite !important; */
 }
 
-a:not(#ancestry):hover,
-a:not(#ancestry):hover span {
+a:hover,
+a:hover span {
   font-style: italic;
   color: var(--orange) !important;
+}
+.text-logo a:hover {
+  font-style: normal;
 }
 h2 a span:hover {
   color: var(--yellow) !important;
