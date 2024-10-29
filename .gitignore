@@ -38,9 +38,9 @@ Thumbs.db
 
 # Other #
 ######################
-node_modules/
-js/
-/package.json 
-/tsconfig.json
-/package-lock.json
-/webpack.config.js
+**/node_modules
+**/js
+**/package.json 
+**/tsconfig.json
+**/package-lock.json
+**/webpack.config.js
