@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Fonts */
 @font-face {
   font-family: "JetBrainsMonoNL";
@@ -187,9 +191,9 @@ select {
 
 select {
   /* background-image:
-      linear-gradient(45deg, transparent 50%, gray 50%),
-      linear-gradient(135deg, gray 50%, transparent 50%),
-      linear-gradient(to right, #ccc, #ccc) !important; */
+        linear-gradient(45deg, transparent 50%, gray 50%),
+        linear-gradient(135deg, gray 50%, transparent 50%),
+        linear-gradient(to right, #ccc, #ccc) !important; */
   background-image: linear-gradient(45deg, transparent 50%, #d3c5b8 50%),
     linear-gradient(135deg, #d3c5b8 50%, transparent 50%),
     linear-gradient(to right, #d3c5b8, #d3c5b8) !important;
@@ -226,11 +230,11 @@ select:hover {
 }
 
 /* .statsAndHP:before {
-    content: "";
-    background: white;
-    height: 1px;
-    width: var(--statAndHpGap);
-} */
+      content: "";
+      background: white;
+      height: 1px;
+      width: var(--statAndHpGap);
+  } */
 
 .statsAndHPv > div {
   flex: 1;
@@ -310,11 +314,11 @@ a#ancestry:hover span,
 }
 
 /* .hpAdRow {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: space-between;
-} */
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: space-between;
+  } */
 
 .hpAdInv.inv {
   width: 100%;
@@ -355,11 +359,11 @@ a#ancestry:hover span,
   margin: 0px;
 }
 /* .allCharacterInfo .infoCol-1>div {
-    padding-right: 40px;
-}
-.allCharacterInfo .infoCol-2>div {
-    padding-left: 40px; 
-} */
+      padding-right: 40px;
+  }
+  .allCharacterInfo .infoCol-2>div {
+      padding-left: 40px; 
+  } */
 .infoCol > div {
   padding: 20px;
   border: solid white 0.5px;
@@ -377,8 +381,8 @@ a#ancestry:hover span,
 
 .name {
   /* font-size: 24px;
-    color: #FFD700;
-    margin-bottom: 10px; */
+      color: #FFD700;
+      margin-bottom: 10px; */
   padding-right: 40px;
 }
 
@@ -390,8 +394,8 @@ a#ancestry:hover span,
 
 .ancestry {
   /* font-size: var(--standardFontSize);
-    color: #FF6347;
-    margin-bottom: 10px; */
+      color: #FF6347;
+      margin-bottom: 10px; */
   padding-left: 40px;
 }
 
