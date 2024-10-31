@@ -77,7 +77,7 @@ export const ancestries: Ancestries = {
   Truekin: {
     ancestryName: "True-kin",
     sentenceTemplate:
-      "You are <a id='body'>BODY</a> and <a id='face'>FACE</a>, with <a id='hair'>HAIR</a> hair. You wear <a id='attire'>ATTIRE</a>. You are part of the <a id='caste'>CASTE</a> caste. You tend to act <a id='demeanor'>DEMEANOR</a>, and your most distinctive feature <a id='distinctfeature'>DISTINCTFEATURE</a>.",
+      "You are <a id='body'>BODY</a> and <a id='face'>FACE</a>, with <a id='hair'>HAIR</a> hair. You wear <a id='attire'>ATTIRE</a>. You are part of the <a id='caste'>CASTE</a> caste. You tend to act <a id='demeanor'>DEMEANOR</a>, and your most distinctive feature is <a id='distinctfeature'>DISTINCTFEATURE</a>.",
     description:
       "The true-kin sealed themselves inside hidden arcologies when the Great Collapse came, and in this fashion they preserved their bodies from the degradations that afflicted those left living upon the surface. The true-kin have fanatically kept their bloodlines free of mutation and parasitic nanomachinery, and closely guard their mastery of the ancients’ technology. The societies they built inside their secluded arcologies were hierarchical and caste-based; traditions the true-kin have carried with them into their re-colonisation of the surface world and establishment of the New Hegemony.",
     abilities:
@@ -902,7 +902,7 @@ export const ancestries: Ancestries = {
   Mycomorph: {
     ancestryName: "Mycomorph",
     sentenceTemplate:
-      "You are <a id='color'>COLOR</a>, <a id='texture'>TEXTURE</a>, and <a id='body'>BODY</a>, with <a id='head'>HEAD</a> head. Your demeanor is <a id='demeanor'>DEMEANOR</a>, and you have the quality of <a id='quality'>QUALITY</a>. You come from the corpse of <a id='corpse'>CORPSE</a>.",
+      "You are <a id='body'>BODY</a> and <a id='color'>COLOR</a>, with <a id='texture'>TEXTURE</a> texture and <a id='head'>HEAD</a> head. Your demeanor tends toward <a id='demeanor'>DEMEANOR</a>, and you have the quality of <a id='quality'>QUALITY</a>. You come from the corpse of <a id='corpse'>CORPSE</a>.",
     description:
       "In Vaarn many things have intertwined, and much that was once the province of mankind alone - speech, reason, art, religion - has been granted to other forms of life and they hold themselves as humanity’s equal. In the mycomorph death and life are held in strange balance, for these creatures are formed of cadaverous flesh and voracious fungus, and they name their kind the ‘twice born’. Sculptors of living matter and artisans of decay, they remake human flesh for their own purposes, and there is no shortage of raw material in the blue ruins.",
     abilities:
@@ -1088,7 +1088,7 @@ export const ancestries: Ancestries = {
     },
   },
   FaaNomad: {
-    ancestryName: "Faa Nomad",
+    ancestryName: "FaaNomad",
     sentenceTemplate:
       "You are <a id='body'>BODY</a> and <a id='blue'>BLUE</a> with a <a id='face'>FACE</a> face and <a id='hair'>HAIR</a> hair. Your demeanor is <a id='demeanor'>DEMEANOR</a>, and your quirk is <a id='quirk'>QUIRK</a>. The reason you left your clan was due to <a id='leaveclan'>LEAVECLAN</a>.",
     description:
