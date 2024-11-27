@@ -57,12 +57,12 @@ function generateCharacter() {
         // Find the corresponding HTML element by ID
         const element = document.getElementById(traitType);
         if (element && traitValue) {
-          element.innerText = traitValue; // Set initial text content
+          element.innerHTML = traitValue; // Set initial text content
           // Add an onclick listener to regenerate only this trait
           element.onclick = () => {
             const newTraitValue = getRandom(traitArray);
             if (newTraitValue) {
-              element.innerText = newTraitValue; // Update text with new trait
+              element.innerHTML = newTraitValue; // Update text with new trait
               selectedTraits[traitType] = newTraitValue; // Update selected traits
             }
           };
@@ -99,8 +99,8 @@ function generateCharacter() {
 
   let selectedArmourType = randomInventory.armourType;
   let selectedWeaponType = randomInventory.weaponType;
+  // let selectedMutation = randomTraits.mutation;
 
-  // inventory functions up top
   function calculateArmourDefense() {
     let armourDefense = 10; // Start at 10
     if (selectedArmourType) {
@@ -122,6 +122,57 @@ function generateCharacter() {
     }
     return armourDefense;
   }
+
+  // inventory functions up top
+  // function calculateArmourDefense() {
+  //   if (selectedAncestry.ancestryName = "lithling") {
+  //     let armourDefense = 16;
+  //     return armourDefense;
+  //   } else if (selectedAncestry.ancestryName = "cacogen" && selectedMutation?.includes("+1")) {
+  //     calculateArmourDefenseInventory();
+  //     let armourDefense += 1;
+  //     return armourDefense;
+  //   }
+  //   else if (selectedAncestry.ancestryName = "cacogen" && selectedMutation?.includes("+2")) {
+  //     calculateArmourDefenseInventory();
+  //     let armourDefense += 2;
+  //     return armourDefense;
+  //   }
+  //   else {
+  //     calculateArmourDefenseInventory();
+  //   }
+
+  //   calculateArmourDefenseInventory();
+  //   let armourDefense = 10; // Start at 10
+  //   if (selectedArmourType) {
+  //     if (selectedArmourType.includes("11 AD")) {
+  //       armourDefense += 1;
+  //     } else if (selectedArmourType.includes("12 AD")) {
+  //       armourDefense += 2;
+  //     } else if (selectedArmourType.includes("13 AD")) {
+  //       armourDefense += 3;
+  //     } else if (selectedArmourType.includes("14 AD")) {
+  //       armourDefense += 4;
+  //     } else if (selectedArmourType.includes("15 AD")) {
+  //       armourDefense += 5;
+  //     } else if (selectedArmourType.includes("16 AD")) {
+  //       armourDefense += 6;
+  //     } else {
+  //       return armourDefense;
+  //     }
+  //   }
+  //   return armourDefense;
+  // }
+
+  // if (selectedMutation) {
+  //   if (selectedMutation.includes("+2")) {
+  //     armourDefense += 2;
+  //   } else if (selectedMutation?.includes("+1")) {
+  //     armourDefense += 1;
+  //   } else {
+  //     return armourDefense;
+  //   }
+  // }
 
   function calculateInventorySize() {
     let inventoryCurrent = 7;
@@ -170,14 +221,14 @@ function generateCharacter() {
         // Find the corresponding HTML element by ID
         const element = document.getElementById(itemType);
         if (element && itemValue) {
-          element.innerText = itemValue; // Set initial text content
+          element.innerHTML = itemValue; // Set initial text content
 
           // Add an onclick listener to regenerate only this item
           // Add an onclick listener to regenerate this item
           element.onclick = () =>
             regenerateItemAndUpdateValues(
               itemType as keyof InventoryItems,
-              inventory
+              inventory,
             );
         }
       }
@@ -191,7 +242,7 @@ function generateCharacter() {
   // Function to regenerate the item and update armor defense and inventory size
   function regenerateItemAndUpdateValues(
     itemType: keyof InventoryItems,
-    inventory: InventoryItems
+    inventory: InventoryItems,
   ) {
     // Get the inventory element
     const element = document.getElementById(itemType);
@@ -220,7 +271,6 @@ function generateCharacter() {
     let finalDefense = calculateArmourDefense().toString();
     document.getElementById("ad")!.innerHTML = finalDefense;
     document.getElementById("invCur")!.textContent = currentInventory;
-    console.log(currentInventory);
   }
 
   calculateInventorySize();

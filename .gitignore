@@ -44,3 +44,10 @@ Thumbs.db
 **/tsconfig.json
 **/package-lock.json
 **/webpack.config.js
+**/tailwind.config.js
+**/prettier.config.js
+**/postcss.config.js
+**/notes.txt
+**/src/*
+**/gsap-public/*
+**/gsap-public

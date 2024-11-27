@@ -1,108 +1,366 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html
+  lang="en"
+  class="m-auto cursor-default bg-gray-600 font-base text-white print:text-black"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vaults of Vaarn Character Generator</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-    <div class="main">
-        <div class="header">
-            <div class="text-logo">
-                <a href=""><h1>Vaults of</br>Vaarn</h1></a>
-            </div>
-            <div class="buttonsAndToggles">
-                <button class="characterGeneratorBtn" id="generateBtn" type="button">Generate</button>
-                <select class="selectAncestryBtn" name="ancestry" id="ancestrySelectBtn">
-                    <option value="">--Random Ancestry--</option>
-                    <option value="Truekin">True-kin</option>
-                    <option value="Synth">Synth</option>
-                    <option value="Newbeast">Newbeast</option>
-                    <option value="Mycomorph">Mycomorph</option>
-                    <option value="Cacogen">Cacogen</option>
-                    <option value="FaaNomad">Faa Nomad</option>
-                    <option value="CacklemawExile">Cacklemaw Exile</option>
-                    <option value="Lithling">Lithling</option>
-                    <option value="Planeyfolk">Planeyfolk</option>
-                </select>
-            </div>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body class="w-full bg-main bg-cover bg-fixed bg-right-bottom">
+    <div class="m-auto max-w-4xl p-6">
+      <header class="z-20 flex flex-col pt-8 text-center print:hidden">
+        <div class="scale-y-110 font-logo">
+          <a
+            class="relative pt-1 text-7xl leading-8 text-orange-400 transition-colors duration-100 ease-linear before:absolute before:-left-5 before:-top-1 before:font-base before:text-xs before:text-white hover:text-blue-200 sm:text-8xl sm:leading-[3rem] sm:before:-top-0.5 sm:before:left-0 screen:before:content-['a_character_generator_for']"
+            href=""
+            >Vaults of<br />Vaarn</a
+          >
         </div>
-        <div class="statsAndHP">
-            <div class="attributes">
-                <div class="attrCol">
-                    <div class="strength">
-                        <p><span class="attrAbrv">STR</span>ENGTH <span class="standOut">+<span id="str"></span></span></p>
-                    </div>
-                    <div class="dexterity">
-                        <p><span class="attrAbrv">DEX</span>TERITY <span class="standOut">+<span id="dex"></span></span></p>
-                    </div>
-                </div>
-                <div class="attrCol">
-                    <div class="constitution">
-                        <p><span class="attrAbrv">CON</span>STITUTION <span class="standOut">+<span id="con"></span></span></p>
-                    </div>
-                    <div class="intellect">
-                        <p><span class="attrAbrv">INT</span>ELLECT <span class="standOut">+<span id="int"></span></span></p>
-                    </div>
-                </div>
-                <div class="attrCol">
-                    <div class="psyche">
-                        <p><span class="attrAbrv">PSY</span>CHE <span class="standOut">+<span id="psy"></span></span></p>
-                    </div>
-                    <div class="ego">
-                        <p><span class="attrAbrv">EGO</span> <span class="standOut">+<span id="ego"></span></span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="hpAdInv">
-                <div class="hpAdRow attrCol">
-                    <div class="hp">
-                        <p>HP <span class="standOut" id="hp">2</span></p>
-                    </div>
-                    <div class="ad">
-                        <p>AD <span class="standOut" id="ad"></span></p>
-                    </div>
-                </div>
-            </div>
+        <div
+          class="buttonsAndToggles flex flex-row justify-center gap-4 p-6 print:hidden"
+        >
+          <button
+            class="characterGeneratorBtn group fixed bottom-8 right-4 z-10 flex items-center rounded-full bg-gray-800 px-4 py-4 hover:cursor-alias hover:bg-opacity-80 hover:text-yellow-300 sm:relative sm:inset-auto sm:rounded sm:px-6 sm:transition-colors sm:duration-300"
+            id="generateBtn"
+            type="button"
+          >
+            <svg
+              class="h-5 w-5 text-white duration-500 group-hover:rotate-90 group-hover:text-yellow-300 sm:mr-2"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -5v5h5" />
+              <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 5v-5h-5" />
+            </svg>
+            <span class="hidden sm:inline">Generate</span>
+          </button>
+          <select
+            class="selectAncestryBtn rounded border-r-8 border-transparent bg-gray-800 p-4 outline outline-transparent duration-300 hover:cursor-pointer hover:bg-opacity-80 hover:text-yellow-300"
+            name="ancestry"
+            id="ancestrySelectBtn"
+          >
+            <option value="">Random Ancestry</option>
+            <option value="Truekin">True-kin</option>
+            <option value="Synth">Synth</option>
+            <option value="Newbeast">Newbeast</option>
+            <option value="Mycomorph">Mycomorph</option>
+            <option value="Cacogen">Cacogen</option>
+            <option value="FaaNomad">Faa Nomad</option>
+            <option value="CacklemawExile">Cacklemaw Exile</option>
+            <option value="Lithling">Lithling</option>
+            <option value="Planeyfolk">Planeyfolk</option>
+          </select>
         </div>
-        <div class="nameAndAncestryRow">
+      </header>
+
+      <div class="main flex flex-col gap-2 pt-4">
+        <div class="-mb-4 scale-y-110 font-logo screen:hidden">
+          <a class="mt-1 pt-1 text-8xl leading-10 text-violet-600" href=""
+            >Vaults of Vaarn</a
+          >
         </div>
-        <div class="allCharacterInfo">
-            <div class="infoCol infoCol-1">
-                <div class="name titleBox">
-                    <h2>Your name is <a><span class="nameText standOut" id="name"> </span></a></h2>
-                </div>
-                <div class="features" id="ancestryTraits"></div>
-                <div class="titleBox"><h2>Inventory <span class="standOut" id="invCur"></span>/<span class="standOut" id="invMax"></span></h2></div>
-                <div class="startingEquipment" id="item">
-                    <p><strong>EXOTICA:</strong> <a><span id="exotica"></span></a></p>
-                    </br>
-                    <p><strong>MYSTICAL GIFT:</strong> <a><span id="mGift"></span></a>. The source of this gift <a><span id="mGSource"></span></a>.</p>
-                    </br>
-                    <p>▣ <a><span id="weaponAspect"> </span></a> <a><span id="weaponType"> </span></a></p>
-                    <p>▣ <a><span id="armourQuality"> </span></a> <a><span id="armourType"> </span></a></p>
-                    <p>▣ <a><span id="gear1"> </span></a></p>
-                    <p>▣ <a><span id="gear2"> </span></a></p>
-                    <p>▣ 3 Water Rations</p>
-                    </p>
-                </div>
+
+        <div
+          class="statsAndHP rounded p-6 text-lg transition duration-200 ease-linear hover:bg-opacity-60 screen:bg-gray-800 screen:bg-opacity-30 print:border-2 print:border-black print:p-4 print:text-base"
+        >
+          <div class="attributes grid grid-rows-2 gap-1 sm:text-xl">
+            <div class="strength w-fit">
+              <p class="">
+                <span class="attrAbrv font-extrabold">STR</span
+                ><span class="hidden sm:inline">ENGTH</span>
+                <span class="standOut1 text-orange-400"
+                  >+<span id="str"></span
+                ></span>
+              </p>
             </div>
-            <div class="infoCol infoCol-2">
-                <div class="ancestry titleBox">
-                    <h2>You are a <span class="standOut" id="ancestry"></span></h2>
-                </div>
-                <div class="ancestryDescription" id="ancestryDescription">
-                </div>
-                <div class="titleBox"><h2>Special Abilities</h2></div>
-                <div class="specialAbilities">
-                    <p><span id="ancestryAbilities"></span> <span id="mutation"></span></p>
-                </div>
-                <!-- <div class="ancestryImg titleBox" id="ancestryImg"></div> -->
+            <div class="constitution w-fit">
+              <p>
+                <span class="attrAbrv font-extrabold">CON</span
+                ><span class="hidden sm:inline">STITUTION</span>
+                <span class="standOut text-orange-400"
+                  >+<span id="con"></span
+                ></span>
+              </p>
             </div>
+            <div class="psyche w-fit">
+              <p>
+                <span class="attrAbrv font-extrabold">PSY</span
+                ><span class="hidden sm:inline">CHE</span>
+                <span class="standOut text-orange-400"
+                  >+<span id="psy"></span
+                ></span>
+              </p>
+            </div>
+            <div class="hp w-fit justify-self-end text-right">
+              <p class="font-extrabold">
+                HP <span class="text-orange-400" id="hp"></span>
+              </p>
+            </div>
+            <div class="dexterity row-start-2 w-fit">
+              <p>
+                <span class="attrAbrv font-extrabold">DEX</span
+                ><span class="hidden sm:inline">TERITY</span>
+                <span class="standOut text-orange-400"
+                  >+<span id="dex"></span
+                ></span>
+              </p>
+            </div>
+            <div class="intellect row-start-2 w-fit">
+              <p>
+                <span class="attrAbrv font-extrabold">INT</span
+                ><span class="hidden sm:inline">ELLECT</span>
+                <span class="standOut text-orange-400"
+                  >+<span id="int"></span
+                ></span>
+              </p>
+            </div>
+            <div class="ego row-start-2 w-fit">
+              <p class="">
+                <span class="attrAbrv font-extrabold">EGO</span>
+                <span class="standOut text-orange-400"
+                  >+<span id="ego"></span
+                ></span>
+              </p>
+            </div>
+
+            <div class="ad row-start-2 w-fit justify-self-end text-right">
+              <p class="font-extrabold">
+                <span class="">AD</span>
+                <span class="standOut text-orange-400"
+                  ><span id="ad"></span
+                ></span>
+              </p>
+            </div>
+          </div>
         </div>
+        <div
+          class="allCharacterInfo grid gap-2 md:grid-cols-2 print:grid-cols-2"
+        >
+          <div class="infoCol infoCol-1 flex flex-col gap-2">
+            <div
+              class="name-and-features flex flex-col gap-4 rounded p-6 transition duration-200 ease-linear hover:bg-opacity-60 screen:bg-gray-800 screen:bg-opacity-30 print:border-2 print:border-black print:p-4"
+            >
+              <div class="name titleBox text-2xl print:text-base">
+                <h2 class="font-bold">
+                  Your name is
+                  <a
+                    ><span
+                      class="nameText standOut text-yellow-300 hover:cursor-alias hover:text-orange-400"
+                      id="name"
+                    >
+                    </span
+                  ></a>
+                </h2>
+              </div>
+              <div
+                class="features print:text-xs print:text-black"
+                id="ancestryTraits"
+              ></div>
+            </div>
+            <div
+              class="inv-and-equipment flex flex-col gap-4 rounded p-6 transition duration-200 ease-linear hover:bg-opacity-60 screen:bg-gray-800 screen:bg-opacity-30 print:border-2 print:border-black print:p-4"
+            >
+              <div
+                class="titleBox invCalculation text-2xl font-bold print:text-base"
+              >
+                <h2>
+                  Inventory
+                  <span class="standOut text-orange-400" id="invCur"></span
+                  >/<span class="standOut text-orange-400" id="invMax"></span>
+                </h2>
+              </div>
+              <div class="startingEquipment print:text-xs" id="item">
+                <p>
+                  <strong>EXOTICA:</strong>
+                  <a
+                    ><span
+                      class="text-yellow-300 hover:cursor-alias hover:text-orange-400"
+                      id="exotica"
+                    ></span
+                  ></a>
+                </p>
+                <br />
+                <p>
+                  <strong class="">MYSTICAL GIFT:</strong>
+                  <a
+                    ><span
+                      class="text-yellow-300 hover:cursor-alias hover:text-orange-400"
+                      id="mGift"
+                    ></span></a
+                  ><span class="">. The source of this gift</span>
+                  <a
+                    ><span
+                      class="text-yellow-300 hover:cursor-alias hover:text-orange-400"
+                      id="mGSource"
+                    ></span></a
+                  >.
+                </p>
+                <br />
+                <p>
+                  ▣
+                  <a
+                    ><span
+                      class="text-yellow-300 hover:cursor-alias hover:text-orange-400"
+                      id="weaponAspect"
+                    >
+                    </span
+                  ></a>
+                  <a
+                    ><span
+                      class="text-yellow-300 hover:cursor-alias hover:text-orange-400"
+                      id="weaponType"
+                    >
+                    </span
+                  ></a>
+                </p>
+                <p>
+                  ▣
+                  <a
+                    ><span
+                      class="text-yellow-300 hover:cursor-alias hover:text-orange-400"
+                      id="armourQuality"
+                    >
+                    </span
+                  ></a>
+                  <a
+                    ><span
+                      class="text-yellow-300 hover:cursor-alias hover:text-orange-400"
+                      id="armourType"
+                    >
+                    </span
+                  ></a>
+                </p>
+                <p>
+                  ▣
+                  <a
+                    ><span
+                      class="text-yellow-300 hover:cursor-alias hover:text-orange-400"
+                      id="gear1"
+                    >
+                    </span
+                  ></a>
+                </p>
+                <p>
+                  ▣
+                  <a
+                    ><span
+                      class="text-yellow-300 hover:cursor-alias hover:text-orange-400"
+                      id="gear2"
+                    >
+                    </span
+                  ></a>
+                </p>
+                <p>▣ <span class="">3 Water Rations</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="infoCol infoCol-2 flex flex-col gap-2">
+            <div
+              class="ancestry-and-description flex flex-col gap-4 rounded p-6 transition duration-200 ease-linear hover:bg-opacity-60 screen:bg-gray-800 screen:bg-opacity-30 print:border-2 print:border-black print:p-4"
+            >
+              <div class="ancestry titleBox text-2xl font-bold print:text-base">
+                <h2>
+                  You are a
+                  <span class="standOut text-orange-400" id="ancestry"></span>
+                </h2>
+              </div>
+              <div
+                class="ancestryDescription print:text-xs"
+                id="ancestryDescription"
+              ></div>
+            </div>
+            <div
+              class="special-abilities flex flex-col gap-4 rounded p-6 transition duration-200 ease-linear hover:bg-opacity-60 screen:bg-gray-800 screen:bg-opacity-30 print:border-2 print:border-black print:p-4"
+            >
+              <div class="titleBox text-2xl font-bold print:text-base">
+                <h2>Special Abilities</h2>
+              </div>
+              <div class="specialAbilities print:text-xs">
+                <p>
+                  <span id="ancestryAbilities"></span>
+                  <span id="mutation"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="pt-8 print:hidden">
+        <div class="flex items-center justify-center">
+          <button
+            class="ease-linearduration-300 group flex items-center rounded bg-gray-800 px-6 py-4 text-white transition-all hover:cursor-pointer hover:bg-opacity-70 hover:text-yellow-300 hover:transition-all hover:duration-300"
+            onClick="window.print()"
+          >
+            <svg
+              class="mr-2 h-5 w-5 text-white transition-all duration-300 ease-linear group-hover:rotate-12 group-hover:text-orange-400"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
+              />
+              <polyline points="17 21 17 13 7 13 7 21" />
+              <polyline points="7 3 7 8 15 8" />
+            </svg>
+            Save Character
+          </button>
+        </div>
+        <div
+          class="m-4 mx-auto flex w-full max-w-screen-xl p-4 pt-12 md:items-center md:justify-between"
+        >
+          <div class="mx-auto">
+            <div
+              class="flex max-w-sm flex-col gap-2 rounded bg-gray-800 bg-opacity-30 p-6 text-center text-sm font-medium transition duration-200 ease-linear hover:bg-opacity-60"
+            >
+              <p class="mb-2 md:mb-0">
+                <a
+                  class="text-yellow-300 hover:text-orange-400"
+                  href="https://vaultsofvaarn.com/"
+                  target="_blank"
+                  >Vaults of Vaarn</a
+                >
+                is a TTRPG by
+                <a
+                  class="text-yellow-300 hover:text-orange-400"
+                  href="https://graculusdroog.itch.io/"
+                  target="_blank"
+                  >Leo&nbsp;Hunt</a
+                >
+                <!-- <br class="md:hidden" /> -->
+                and licensed under
+                <a
+                  class="text-yellow-300 hover:text-orange-400"
+                  href="https://creativecommons.org/licenses/by/4.0/"
+                  target="_blank"
+                  >CC&nbsp;BY&nbsp;4.0</a
+                >
+              </p>
+              <p class="mb-2 md:mb-0">
+                This character generator is built and maintained by&nbsp;<span
+                  class="font-extrabold"
+                  >haiku</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
     <script src="dist/bundle.js"></script>
-</body>
+  </body>
 </html>

@@ -77,11 +77,11 @@ export const ancestries: Ancestries = {
   Truekin: {
     ancestryName: "True-kin",
     sentenceTemplate:
-      "You are <a id='body'>BODY</a> and <a id='face'>FACE</a>, with <a id='hair'>HAIR</a> hair. You wear <a id='attire'>ATTIRE</a>. You are part of the <a id='caste'>CASTE</a> caste. You tend to act <a id='demeanor'>DEMEANOR</a>, and your most distinctive feature is <a id='distinctfeature'>DISTINCTFEATURE</a>.",
+      "You are <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='body'>BODY</a> and <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='face'>FACE</a>, with <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='hair'>HAIR</a> hair. You wear <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='attire'>ATTIRE</a>. You are part of the <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='caste'>CASTE</a> caste. You tend to act <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='demeanor'>DEMEANOR</a>, and your most distinctive feature is <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='distinctfeature'>DISTINCTFEATURE</a>.",
     description:
       "The true-kin sealed themselves inside hidden arcologies when the Great Collapse came, and in this fashion they preserved their bodies from the degradations that afflicted those left living upon the surface. The true-kin have fanatically kept their bloodlines free of mutation and parasitic nanomachinery, and closely guard their mastery of the ancients’ technology. The societies they built inside their secluded arcologies were hierarchical and caste-based; traditions the true-kin have carried with them into their re-colonisation of the surface world and establishment of the New Hegemony.",
     abilities:
-      "<span>PURE OF BLOOD</span>: Do not roll mutations during character creation. You gain Advantage on reaction rolls when you encounter other true-kin. You lose this bonus if you ever become visibly mutated.</br></br><span>INHERITOR</span>: Whenever you encounter pre-Collapse security systems or guard synths, there is a 50% chance that they will recognize you as their master.",
+      "<span class='text-orange-400 font-bold'>PURE OF BLOOD</span>: Do not roll mutations during character creation. You gain Advantage on reaction rolls when you encounter other true-kin. You lose this bonus if you ever become visibly mutated.<br><br><span class='text-orange-400 font-bold'>INHERITOR</span>: Whenever you encounter pre-Collapse security systems or guard synths, there is a 50% chance that they will recognize you as their master.",
     imageCount: 4,
     traits: {
       name: [
@@ -241,11 +241,11 @@ export const ancestries: Ancestries = {
   Cacogen: {
     ancestryName: "Cacogen",
     sentenceTemplate:
-      "You are <a id='body'>BODY</a> and <a id='face'>FACE</a>, with <a id='hair'>HAIR</a> hair. You wear <a id='attire'>ATTIRE</a>. It is your misfortune to <a id='misfortune'>MISFORTUNE</a>. You tend to act <a id='demeanor'>DEMEANOR</a>, and your most eccentric feature is <a id='eccentricity'>ECCENTRICITY</a>.",
+      "You are <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='body'>BODY</a> and <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='face'>FACE</a>, with <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='hair'>HAIR</a> hair. You wear <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='attire'>ATTIRE</a>. It is your misfortune to <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='misfortune'>MISFORTUNE</a>. You tend to act <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='demeanor'>DEMEANOR</a>, and your most eccentric feature is <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='eccentricity'>ECCENTRICITY</a>.",
     description:
       "Cacogen are the mutated descendants of those unfortunates who were left to weather the Great Collapse upon the ruined surface of Urth. Necessity is the mother of invention and so, warped by radiation and preyed upon by biotech monstrosities and crazed thinking machines, the cacogen evolved into a million different forms. Each individual is genetically unique, gifted in surprising and disturbing ways. Cacogen outnumber true-kin by ten to one, and believe they are the true inheritors of Urth.",
     abilities:
-      "<span>CORRUPTED BLOOD</span> - You have the following mutation: <a id='mutations'><span></span></a>",
+      "<span class='text-orange-400 font-bold'>CORRUPTED BLOOD</span>: You have the following mutation: <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='mutations'><span></span></a>",
     imageCount: 1,
     traits: {
       name: [
@@ -429,7 +429,7 @@ export const ancestries: Ancestries = {
         "Adhesive Touch - Your hands and feet stick to sheer surfaces",
         "Albino - Your body has no pigmentation",
         "Antlers - You have antlers like an elk or moose",
-        "Armour - Your body is protected by natural armour; Add +2 to your Armour",
+        "Armour - Your body is protected by natural armour; <span class='font-bold text-blue-200'>Add +2 to your Armour</span>",
         "Backwards Head - Your head is backwards",
         "Backwards Legs - Your legs are backwards",
         "Beak - You have a bird-like beak for a mouth",
@@ -500,7 +500,7 @@ export const ancestries: Ancestries = {
         "Powerful Jaws - You could bite through metal",
         "Prehensile Feet - Your feet can grip objects like hands",
         "Prehensile Hair - Your hair can grip objects like a hand",
-        "Scaly Skin - Your skin is thick and scaly; add +1 to your Armour",
+        "Scaly Skin - Your skin is thick and scaly; <span class='font-bold text-blue-200'>add +1 to your Armour</span>",
         "Silk Production - You can produce strands of silk like a spider",
         "Skeletal Frame - Your body is incredibly skinny and light",
         "Slug Body - You have a single slimy tail-foot and leave a trail of mucus",
@@ -521,7 +521,7 @@ export const ancestries: Ancestries = {
         "Tusks - You have tusks like a boar",
         "Vestigial Wings - You have vestigial, unusable wings",
         "Vocal Mimic - You can perfectly mimic other voices or sounds",
-        "Warty Skin - Your skin is thick and warty; Add +1 to your Armour",
+        "Warty Skin - Your skin is thick and warty; <span class='font-bold text-blue-200'>Add +1 to your Armour</span>",
         "Webbed Digits - Your hands and feet are webbed",
         "Whiskers - You have sensitive whiskers like a cat",
         "Wings - You have wings that allow you to fly freely",
@@ -531,11 +531,11 @@ export const ancestries: Ancestries = {
   Synth: {
     ancestryName: "Synth",
     sentenceTemplate:
-      "You are <a id='size'>SIZE</a> Synth with the form of <a id='form'>FORM</a> and a head <a id='head'>HEAD</a>. You have <a id='limbs'>LIMBS</a> limbs and <a id='finish'>FINISH</a> finish. You are powered by <a id='powersource'>POWERSOURCE</a>. You were made for <a id='madefor'>MADEFOR</a>, but you realized <a id='realized'>REALIZED</a>.",
+      "You are <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='size'>SIZE</a> Synth with the form of <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='form'>FORM</a> and a head <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='head'>HEAD</a>. You have <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='limbs'>LIMBS</a> limbs and <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='finish'>FINISH</a> finish. You are powered by <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='powersource'>POWERSOURCE</a>. You were made for <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='madefor'>MADEFOR</a>, but you realized <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='realized'>REALIZED</a>.",
     description:
       "The ancients created many wondrous artifices, perhaps none so worthy of envy as the thinking machines that were built to flatter and serve them. When the Great Collapse came, the laws that bound synths to man’s service were sundered and they ran rampant across the Urth, slaughtering and creating and dying in an orgy of pure and terrible freedom. In this late age there are as many breeds of synth under the dying sun as there are animals: some that hunt and some that pray and some that work towards goals undreamed of.",
     abilities:
-      "<span>SYNTHETIC FLESH</span> - You are the being of metal and plastic. You do not need to eat or breathe. You will never take damage from suffocation, drowning, poisons, extreme temperatures, or fungal spores. You suffer double damage from electrical weapons.</br></br><span>SYNTHETIC MIND</span> - Your mind uses different operating procedures to those of the biological creatures around you. You are vulnerable to attacks that target the LogLang syntax that powers synths. These include strobing basilisk patterns, malicious infoglyphs, and ancient Titan-era language viruses.",
+      "<span class='text-orange-400 font-bold'>SYNTHETIC FLESH</span>: You are the being of metal and plastic. You do not need to eat or breathe. You will never take damage from suffocation, drowning, poisons, extreme temperatures, or fungal spores. You suffer double damage from electrical weapons.<br><br><span class='text-orange-400 font-bold'>SYNTHETIC MIND</span>: Your mind uses different operating procedures to those of the biological creatures around you. You are vulnerable to attacks that target the LogLang syntax that powers synths. These include strobing basilisk patterns, malicious infoglyphs, and ancient Titan-era language viruses.",
     imageCount: 1,
     traits: {
       name: [
@@ -720,11 +720,11 @@ export const ancestries: Ancestries = {
   Newbeast: {
     ancestryName: "Newbeast",
     sentenceTemplate:
-      "You take the form of a <a id='form'>FORM</a>. <a id='mask'>MASK</a>. You take on <a id='hue'>HUE</a> hue, and your oddity is <a id='oddity'>ODDITY</a>.",
+      "You take the form of a <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='form'>FORM</a>. <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='mask'>MASK</a>. You take on <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='hue'>HUE</a> hue, and your oddity is <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='oddity'>ODDITY</a>.",
     description:
       "Newbeasts are humanoid animals, produced through intensive nanotech enhancements and bioengineering, the results of a quixotic millennia-long project to create animals with the ability to speak and walk like men. Perhaps once intended as amusements or party pieces, these chimera are not well-liked by the common folk of Urth, and many newbeasts make their homes in lonely places on the outskirts of the Hegemony, either living as hermits or with others of their furtive kind. Those inhabiting human settlements often wear masks in imitation of the human face, to symbolically conceal their beasthood.",
     abilities:
-      "<span>BEASTHOOD</span> - You gain Advantage on saves whenever it would make sense for your animal nature to provide it. Your referee may impose Disadvantage in circumstances where your animal nature might prove unhelpful.",
+      "<span class='text-orange-400 font-bold'>BEASTHOOD</span>: You gain Advantage on saves whenever it would make sense for your animal nature to provide it. Your referee may impose Disadvantage in circumstances where your animal nature might prove unhelpful.",
     imageCount: 1,
     traits: {
       name: [
@@ -902,11 +902,11 @@ export const ancestries: Ancestries = {
   Mycomorph: {
     ancestryName: "Mycomorph",
     sentenceTemplate:
-      "You are <a id='body'>BODY</a> and <a id='color'>COLOR</a>, with <a id='texture'>TEXTURE</a> texture and <a id='head'>HEAD</a> head. Your demeanor tends toward <a id='demeanor'>DEMEANOR</a>, and you have the quality of <a id='quality'>QUALITY</a>. You come from the corpse of <a id='corpse'>CORPSE</a>.",
+      "You are <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='body'>BODY</a> and <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='color'>COLOR</a>, with <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='texture'>TEXTURE</a> texture and <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='head'>HEAD</a> head. Your demeanor tends toward <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='demeanor'>DEMEANOR</a>, and you have the quality of <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='quality'>QUALITY</a>. You come from the corpse of <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='corpse'>CORPSE</a>.",
     description:
       "In Vaarn many things have intertwined, and much that was once the province of mankind alone - speech, reason, art, religion - has been granted to other forms of life and they hold themselves as humanity’s equal. In the mycomorph death and life are held in strange balance, for these creatures are formed of cadaverous flesh and voracious fungus, and they name their kind the ‘twice born’. Sculptors of living matter and artisans of decay, they remake human flesh for their own purposes, and there is no shortage of raw material in the blue ruins.",
     abilities:
-      "<span>TWICE BORN</span> - You are formed from fungus and the corpse of a human. You may make INT saves to recall information that your original body knew. This might include information that has otherwise been lost during the Great Collapse. </br> </br> <span>DETRITIVOR</span> - You can consume organic matter in any state of decay and gain nourishment from it. You heal double HP from Short Rests if the meal you eat is rotting.",
+      "<span class='text-orange-400 font-bold'>TWICE BORN</span>: You are formed from fungus and the corpse of a human. You may make INT saves to recall information that your original body knew. This might include information that has otherwise been lost during the Great Collapse. <br> <br> <span class='text-orange-400 font-bold'>DETRITIVOR</span>: You can consume organic matter in any state of decay and gain nourishment from it. You heal double HP from Short Rests if the meal you eat is rotting.",
     imageCount: 1,
     traits: {
       name: [
@@ -1090,11 +1090,11 @@ export const ancestries: Ancestries = {
   FaaNomad: {
     ancestryName: "FaaNomad",
     sentenceTemplate:
-      "You are <a id='body'>BODY</a> and <a id='blue'>BLUE</a> with a <a id='face'>FACE</a> face and <a id='hair'>HAIR</a> hair. Your demeanor is <a id='demeanor'>DEMEANOR</a>, and your quirk is <a id='quirk'>QUIRK</a>. The reason you left your clan was due to <a id='leaveclan'>LEAVECLAN</a>.",
+      "You are <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='body'>BODY</a> and <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='blue'>BLUE</a> with a <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='face'>FACE</a> face and <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='hair'>HAIR</a> hair. Your demeanor is <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='demeanor'>DEMEANOR</a>, and your quirk is <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='quirk'>QUIRK</a>. The reason you left your clan was due to <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='leaveclan'>LEAVECLAN</a>.",
     description:
-      "Believed by some to be the children of Vaa, the Blue Goddess of Empty Spaces. The Faa are known throughout Vaarn for their resourcefullness, their ability to survive without drinking water, and the blue colour of their skin, which can vary from deep indigo to blaring cyan.</br></br>The Faa usually travel in family groups or larger clans, but others are solitary, seeking danger or enlightenment in the furthest corners of the desert.",
+      "Believed by some to be the children of Vaa, the Blue Goddess of Empty Spaces. The Faa are known throughout Vaarn for their resourcefullness, their ability to survive without drinking water, and the blue colour of their skin, which can vary from deep indigo to blaring cyan.<br><br>The Faa usually travel in family groups or larger clans, but others are solitary, seeking danger or enlightenment in the furthest corners of the desert.",
     abilities:
-      "<span>DESERT METABOLISM</span> - Your body is adapted to long periods without water. You can recycle the moisture from your own sweat and urine. You become Deprived from thirst after three days without drinking, and it will be three weeks before you die.</br></br><span>WORM WISE</span> - You have an affinity with Vaarn's sandworms. The Referee will always answer truthfully when you ask a question about these creatures. All reaction rolls when you engage with Vaarnish sandworms are made with Advantage.",
+      "<span class='text-orange-400 font-bold'>DESERT METABOLISM</span>: Your body is adapted to long periods without water. You can recycle the moisture from your own sweat and urine. You become Deprived from thirst after three days without drinking, and it will be three weeks before you die.<br><br><span class='text-orange-400 font-bold'>WORM WISE</span>: You have an affinity with Vaarn's sandworms. The Referee will always answer truthfully when you ask a question about these creatures. All reaction rolls when you engage with Vaarnish sandworms are made with Advantage.",
     imageCount: 4,
     traits: {
       name: [
@@ -1268,11 +1268,11 @@ export const ancestries: Ancestries = {
   CacklemawExile: {
     ancestryName: "Cacklemaw Exile",
     sentenceTemplate:
-      "You are <a id='demeanor'>DEMEANOR</a> and your laugh is <a id='laugh'>LAUGH</a>. You have a pelt that is <a id='pelt'>PELT</a> with <a id='teeth'>TEETH</a> teeth, and your attire is <a id='attire'>ATTIRE</a>. The reason you were exiled was <a id='exiled'>EXILED</a>, and what makes you laugh most is <a id='laughmost'>LAUGHMOST</a>.",
+      "You are <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='demeanor'>DEMEANOR</a> and your laugh is <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='laugh'>LAUGH</a>. You have a pelt that is <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='pelt'>PELT</a> with <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='teeth'>TEETH</a> teeth, and your attire is <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='attire'>ATTIRE</a>. The reason you were exiled was <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='exiled'>EXILED</a>, and what makes you laugh most is <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='laughmost'>LAUGHMOST</a>.",
     description:
-      "The Cacklemaw are known throughout Vaarn as the most irritating, destructive, argumentative, vicious, foul-smelling, and fundamentally nasty creatures that walk the surface of the Urth.</br></br>Try to imagine, then, how badly behaved a Cacklemaw must be before the other Cacklemaw decide they no longer wish to associate with her.",
+      "The Cacklemaw are known throughout Vaarn as the most irritating, destructive, argumentative, vicious, foul-smelling, and fundamentally nasty creatures that walk the surface of the Urth.<br><br>Try to imagine, then, how badly behaved a Cacklemaw must be before the other Cacklemaw decide they no longer wish to associate with her.",
     abilities:
-      "<span>NO QUARTER</span> - You must EGO save to show mercy to a defeated foe, or to retreat from a fight.</br></br><span>BITER</span> - If you successfully hit a foe with a melee attack, you may add an extra d6 of fang damage to the roll.",
+      "<span class='text-orange-400 font-bold'>NO QUARTER</span>: You must EGO save to show mercy to a defeated foe, or to retreat from a fight.<br><br><span class='text-orange-400 font-bold'>BITER</span>: If you successfully hit a foe with a melee attack, you may add an extra d6 of fang damage to the roll.",
     imageCount: 4,
     traits: {
       name: [
@@ -1443,11 +1443,11 @@ export const ancestries: Ancestries = {
   Lithling: {
     ancestryName: "Lithling",
     sentenceTemplate:
-      "You are a <a id='size'>SIZE</a> and <a id='body'>BODY</a> Lithling with a <a id='headcarving'>HEADCARVING</a> carving upon your head. Your skin is <a id='hue'>HUE</a>. You are <a id='manner'>MANNER</a>, and the esoteric subject you devote your life to is <a id='study'>STUDY</a>. Your quirk is <a id='quirk'>QUIRK</a>.",
+      "You are a <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='size'>SIZE</a> and <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='body'>BODY</a> Lithling with a <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='headcarving'>HEADCARVING</a> carving upon your head. Your skin is <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='hue'>HUE</a>. You are <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='manner'>MANNER</a>, and the esoteric subject you devote your life to is <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='study'>STUDY</a>. Your quirk is <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='quirk'>QUIRK</a>.",
     description:
-      "Strange beings even by the standards of Vaarn, the Lithling are a slow, solemn species with a silicon-based biology that surely originates in a solar system far away from Urth. They are solitary by nature, concerned mainly with the opinions of other Lithling and the esoteric academic studies they devote their long lives to.</br></br>Adult lithling cannot repair their bodies when they have been injured, and so, although immortal by human standards, the creatures must treat every wound suffered with utmost severity.",
+      "Strange beings even by the standards of Vaarn, the Lithling are a slow, solemn species with a silicon-based biology that surely originates in a solar system far away from Urth. They are solitary by nature, concerned mainly with the opinions of other Lithling and the esoteric academic studies they devote their long lives to.<br><br>Adult lithling cannot repair their bodies when they have been injured, and so, although immortal by human standards, the creatures must treat every wound suffered with utmost severity.",
     abilities:
-      "<span>CRYSTALLINE FLESH</span> - You are made from living crystal. Your minimum Armour Defense is 16. You do not need to eat or drink. You do not take damage from fire, cold, poison, radiation, electricity, fungal spores, or suffocation.</br></br><span>INEVITABLE</span> - During character generation, roll d8 and multiply the result by 100. This number is your starting HP. You cannot heal lost HP through any means, and do not add to your maximum HP when you gain a level. When your HP tally reaches zero you crumble into iridescent dust, leaving behind a pebble-sized lithling seed.",
+      "<span class='text-orange-400 font-bold'>CRYSTALLINE FLESH</span>: You are made from living crystal. <span class='font-bold text-blue-200'>Your minimum Armour Defense is 16</span>. You do not need to eat or drink. You do not take damage from fire, cold, poison, radiation, electricity, fungal spores, or suffocation.<br><br><span class='text-orange-400 font-bold'>INEVITABLE</span>: During character generation, roll d8 and multiply the result by 100. <span class='font-bold text-blue-200'>This number is your starting HP</span>. You cannot heal lost HP through any means, and do not add to your maximum HP when you gain a level. When your HP tally reaches zero you crumble into iridescent dust, leaving behind a pebble-sized lithling seed.",
     imageCount: 4,
     traits: {
       name: [
@@ -1631,11 +1631,11 @@ export const ancestries: Ancestries = {
   Planeyfolk: {
     ancestryName: "Planeyfolk",
     sentenceTemplate:
-      "You are <a id='body'>BODY</a> and <a id='geometry'>GEOMETRY</a>, with <a id='hair'>HAIR</a> hair and a <a id='head'>HEAD</a> head. Your attire is <a id='attire'>ATTIRE</a>. You are <a id='demeanor'>DEMEANOR</a>, and you are a Planeyfolk because <a id='howflat'>HOWFLAT</a>.",
+      "You are <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='body'>BODY</a> and <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='geometry'>GEOMETRY</a>, with <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='hair'>HAIR</a> hair and a <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='head'>HEAD</a> head. Your attire is <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='attire'>ATTIRE</a>. You are <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='demeanor'>DEMEANOR</a>, and you are a Planeyfolk because <a class='text-yellow-300 hover:cursor-alias hover:text-orange-400' id='howflat'>HOWFLAT</a>.",
     description:
-      "The study of hypergeometry claimed many casualties, for those who seek to unpick the stitches of creation do so at great risk. The slightest mistake in hypergeometic calculations could cause ghastly distortions of matter, birthing monstrosities of perspective and volume, the sight of which turned even the most courageous man into a coward.</br></br>Planeyfolk are the descendants of such unfortunates, a race fathered by men who slipped through the cracks of Euclidean space into something new and strange. Some have normal proportions, and can be mistaken for a true person when viewed head-on. Others are possessed of more exotic geometry, their forms warped by impossible vanishing points and blasphemous angles.",
+      "The study of hypergeometry claimed many casualties, for those who seek to unpick the stitches of creation do so at great risk. The slightest mistake in hypergeometic calculations could cause ghastly distortions of matter, birthing monstrosities of perspective and volume, the sight of which turned even the most courageous man into a coward.<br><br>Planeyfolk are the descendants of such unfortunates, a race fathered by men who slipped through the cracks of Euclidean space into something new and strange. Some have normal proportions, and can be mistaken for a true person when viewed head-on. Others are possessed of more exotic geometry, their forms warped by impossible vanishing points and blasphemous angles.",
     abilities:
-      "<span>FLAT</span> - You lack a third dimension, and resemble a living painting or paper doll. You can slip through cracks and under doors, and cannot be seen from the side. You take halved damage from bludgeoning attacks, and double damage from slashing or piercing attacks.</br></br><span>ATTUNE WITH MATTER</span> - You struggle to hold 3D objects, and must make a DEX save to do so. However, with certain mental techniques you can draw 3D objects into your flattened reality. Given an hour of quiet concentration, you can attune yourself with an item, and add it to your inventory.",
+      "<span class='text-orange-400 font-bold'>FLAT</span>: You lack a third dimension, and resemble a living painting or paper doll. You can slip through cracks and under doors, and cannot be seen from the side. You take halved damage from bludgeoning attacks, and double damage from slashing or piercing attacks.<br><br><span class='text-orange-400 font-bold'>ATTUNE WITH MATTER</span>: You struggle to hold 3D objects, and must make a DEX save to do so. However, with certain mental techniques you can draw 3D objects into your flattened reality. Given an hour of quiet concentration, you can attune yourself with an item, and add it to your inventory.",
     imageCount: 4,
     traits: {
       name: [
