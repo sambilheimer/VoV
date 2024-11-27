@@ -17,7 +17,7 @@ module.exports = {
         base: "JetBrainsMonoNL", // Adds a new `font-display` class
       },
       backgroundImage: {
-        main: "url('/assets/bg_copy.jpg')",
+        main: "url('/assets/bg.webp')",
       },
     },
   },

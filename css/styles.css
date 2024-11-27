@@ -631,10 +631,6 @@ video {
   height: 1.25rem;
 }
 
-.h-80 {
-  height: 20rem;
-}
-
 .w-5 {
   width: 1.25rem;
 }
@@ -739,22 +735,8 @@ video {
   --tw-bg-opacity: 0.3;
 }
 
-.bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-
 .bg-main {
-  background-image: url('/assets/bg_copy.jpg');
-}
-
-.from-black {
-  --tw-gradient-from: #000 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.via-80\% {
-  --tw-gradient-via-position: 80%;
+  background-image: url('/assets/bg.webp');
 }
 
 .bg-cover {
